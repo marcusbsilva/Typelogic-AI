@@ -1,0 +1,87 @@
+{
+  "split": "research\\data\\typelogic-distill-v1\\calibration.jsonl",
+  "system": "direct",
+  "model_dir": "models\\qwen35-4b",
+  "ollama_model": "crh225/plumb-4b",
+  "device": "cpu",
+  "orders": 2,
+  "engine": {
+    "status": "ready",
+    "error": null,
+    "offline": true,
+    "model": "typelogic-direct",
+    "backend": "ollama",
+    "device": "ollama",
+    "dtype": null,
+    "model_dir": "models\\qwen35-4b",
+    "gguf": null,
+    "ollama_model": "crh225/plumb-4b",
+    "answers_with_floored_letters": 0,
+    "fallback_reason": null,
+    "temperature": 1.0,
+    "temperature_by_type": null,
+    "option_orders": 2,
+    "calibration": "local_validation_not_general_guarantee",
+    "calibration_file": "direct-calibration-ollama-crh225_plumb-4b-avg2.json",
+    "prompt_version": "semif-direct-options-v1"
+  },
+  "overall": {
+    "questions": 144,
+    "accuracy": 0.9305555555555556,
+    "nll": 0.3514323626127226,
+    "brier": 0.07590164949913732,
+    "ece_10_bins": 0.03633185951213189,
+    "invalid_questions": 0,
+    "accuracy_strict": 0.9305555555555556
+  },
+  "by_type": {
+    "choice": {
+      "questions": 61,
+      "accuracy": 0.9672131147540983,
+      "nll": 0.35415430430546607,
+      "brier": 0.055978659168254424,
+      "ece_10_bins": 0.055040381076490646
+    },
+    "noul": {
+      "questions": 49,
+      "accuracy": 0.9795918367346939,
+      "nll": 0.13338917414373408,
+      "brier": 0.025903159581772202,
+      "ece_10_bins": 0.03880181100227425
+    },
+    "score": {
+      "questions": 34,
+      "accuracy": 0.7941176470588235,
+      "nll": 0.6607875917810485,
+      "brier": 0.1837024852678064,
+      "ece_10_bins": 0.1425136975514578
+    }
+  },
+  "by_language": {
+    "en": {
+      "questions": 98,
+      "accuracy": 0.9183673469387755,
+      "nll": 0.38736329982164813,
+      "brier": 0.08256045065575598,
+      "ece_10_bins": 0.05316967886213604
+    },
+    "pt": {
+      "questions": 46,
+      "accuracy": 0.9565217391304348,
+      "nll": 0.2748838442110985,
+      "brier": 0.06171550790460194,
+      "ece_10_bins": 0.05224220842613169
+    }
+  },
+  "by_source": {
+    "typelogic-distill-v1": {
+      "questions": 144,
+      "accuracy": 0.9305555555555556,
+      "nll": 0.3514323626127226,
+      "brier": 0.07590164949913732,
+      "ece_10_bins": 0.03633185951213189
+    }
+  },
+  "latency_p50_s": 2.23637929999677,
+  "invalid": []
+}

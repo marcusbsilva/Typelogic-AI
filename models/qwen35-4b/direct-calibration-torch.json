@@ -1,0 +1,135 @@
+{
+  "temperature": 1.4,
+  "fit_file": "calibration.jsonl.gz",
+  "fit_rows": 1200,
+  "metrics": {
+    "sources": [
+      "workflow-controls-v1",
+      "customer-control-v1"
+    ],
+    "model_dir": "models\\qwen35-4b",
+    "backend": "torch",
+    "device": "xpu",
+    "dtype": "bfloat16",
+    "fit_file": "calibration.jsonl.gz",
+    "temperature": 1.4,
+    "grid_boundary": false,
+    "fit": {
+      "raw": {
+        "rows": 1200,
+        "skipped": 0,
+        "accuracy": 0.7433333333333333,
+        "nll": 0.5640421954786803,
+        "brier": 0.3309896054092542,
+        "ece_10_bins": 0.07526484984438575
+      },
+      "calibrated": {
+        "rows": 1200,
+        "skipped": 0,
+        "accuracy": 0.7433333333333333,
+        "nll": 0.5470236450673721,
+        "brier": 0.32756737326528557,
+        "ece_10_bins": 0.08961029412508552
+      }
+    },
+    "eval_file": "test.jsonl.gz",
+    "eval": {
+      "raw": {
+        "rows": 1200,
+        "skipped": 0,
+        "accuracy": 0.7666666666666667,
+        "nll": 0.5201531297989548,
+        "brier": 0.30745588058506146,
+        "ece_10_bins": 0.07680122800698201
+      },
+      "calibrated": {
+        "rows": 1200,
+        "skipped": 0,
+        "accuracy": 0.7666666666666667,
+        "nll": 0.5126786929306477,
+        "brier": 0.3071340390869196,
+        "ece_10_bins": 0.07366606870417428
+      }
+    },
+    "eval_by_source": {
+      "customer-control-v1": {
+        "rows": 196,
+        "skipped": 0,
+        "accuracy": 0.6377551020408163,
+        "nll": 1.0128400113369826,
+        "brier": 0.5459538620515245,
+        "ece_10_bins": 0.16001528169642878
+      },
+      "workflow-controls-v1/agent_trace_observability": {
+        "rows": 128,
+        "skipped": 0,
+        "accuracy": 0.7421875,
+        "nll": 0.506776330525524,
+        "brier": 0.32628636095815583,
+        "ece_10_bins": 0.13470021268299093
+      },
+      "workflow-controls-v1/customer_service": {
+        "rows": 149,
+        "skipped": 0,
+        "accuracy": 0.7516778523489933,
+        "nll": 0.4441677659179242,
+        "brier": 0.29292568007523884,
+        "ece_10_bins": 0.1449484114956487
+      },
+      "workflow-controls-v1/invoice_processing": {
+        "rows": 310,
+        "skipped": 0,
+        "accuracy": 0.6903225806451613,
+        "nll": 0.513731808190437,
+        "brier": 0.3450198333428653,
+        "ece_10_bins": 0.18394541085739718
+      },
+      "workflow-controls-v1/security_incidents": {
+        "rows": 417,
+        "skipped": 0,
+        "accuracy": 0.8968824940047961,
+        "nll": 0.30309966745001293,
+        "brier": 0.1659164534102204,
+        "ece_10_bins": 0.1484600925222743
+      }
+    }
+  },
+  "sources": [
+    "customer-control-v1",
+    "workflow-controls-v1/agent_trace_observability",
+    "workflow-controls-v1/customer_service",
+    "workflow-controls-v1/invoice_processing",
+    "workflow-controls-v1/security_incidents"
+  ],
+  "backend": "torch",
+  "model_files": {
+    "config.json": {
+      "sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670"
+    },
+    "model.safetensors-00001-of-00002.safetensors": {
+      "bytes": 5329398688
+    },
+    "model.safetensors-00002-of-00002.safetensors": {
+      "bytes": 3990429408
+    },
+    "model.safetensors.index.json": {
+      "sha256": "cf3f798ee02ba45f9622aa8892a47369ab667d0afbf154ee7c2212de42e6302d"
+    },
+    "preprocessor_config.json": {
+      "sha256": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516"
+    },
+    "tokenizer.json": {
+      "sha256": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42"
+    },
+    "tokenizer_config.json": {
+      "sha256": "316230d6a809701f4db5ea8f8fc862bc3a6f3229c937c174e674ff3ca0a64ac8"
+    },
+    "video_preprocessor_config.json": {
+      "sha256": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13"
+    },
+    "vocab.json": {
+      "sha256": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003"
+    }
+  },
+  "scope": "Temperature fitted on held-out typed decisions (Open-Jev calibration split); not a guarantee for your domain."
+}

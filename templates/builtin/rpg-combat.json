@@ -1,0 +1,88 @@
+{
+  "format": "typelogic-template-v1",
+  "id": "rpg-combat",
+  "title": "RPG · attack with an available skill",
+  "description": "Game decision with numeric facts as evidence.",
+  "case": "A short RPG fight: turn 1, the player approaches; turn 2, the monster blocks; turn 3, it is the monster turn. The monster has 60/80 HP and zero mana. The enemy player is 1 meter away. Claw is ready, costs zero mana and reaches 2 meters. Frost Snare costs 10 mana. Heal costs 20 mana. The retreat path is blocked. Game policy: use an available attack when healthy and unable to retreat.",
+  "tags": [
+    "internal"
+  ],
+  "evidence_schema": [
+    {
+      "name": "monster_hp",
+      "type": "integer",
+      "description": "Current HP of the monster"
+    },
+    {
+      "name": "monster_max_hp",
+      "type": "integer",
+      "description": "Maximum HP of the monster"
+    },
+    {
+      "name": "monster_mana",
+      "type": "integer",
+      "description": "Mana of the monster"
+    },
+    {
+      "name": "enemy_distance_m",
+      "type": "number",
+      "description": "Distance to the enemy player",
+      "unit": "m"
+    },
+    {
+      "name": "claw_reach_m",
+      "type": "number",
+      "description": "Reach of Claw",
+      "unit": "m"
+    },
+    {
+      "name": "claw_mana_cost",
+      "type": "integer",
+      "description": "Mana cost of Claw"
+    },
+    {
+      "name": "frost_snare_mana_cost",
+      "type": "integer",
+      "description": "Mana cost of Frost Snare"
+    },
+    {
+      "name": "heal_mana_cost",
+      "type": "integer",
+      "description": "Mana cost of Heal"
+    },
+    {
+      "name": "retreat_blocked",
+      "type": "boolean",
+      "description": "The retreat path is blocked"
+    }
+  ],
+  "evidence": {
+    "monster_hp": 60,
+    "monster_max_hp": 80,
+    "monster_mana": 0,
+    "enemy_distance_m": 1,
+    "claw_reach_m": 2,
+    "claw_mana_cost": 0,
+    "frost_snare_mana_cost": 10,
+    "heal_mana_cost": 20,
+    "retreat_blocked": true
+  },
+  "decisions": [
+    {
+      "output": "choice",
+      "instructions": "Which action is available and follows the game policy?",
+      "criteria": {
+        "0": "Attack the nearby player with Claw",
+        "1": "Use Frost Snare without the required mana",
+        "2": "Use Heal without the required mana"
+      }
+    },
+    {
+      "output": "boolean",
+      "instructions": "Does the monster have enough mana to use Heal?"
+    }
+  ],
+  "threshold": 0.85,
+  "permutation_check": true,
+  "example": true
+}

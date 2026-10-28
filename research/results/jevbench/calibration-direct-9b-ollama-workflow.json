@@ -1,0 +1,92 @@
+{
+  "sources": [
+    "workflow-controls-v1",
+    "customer-control-v1"
+  ],
+  "model_dir": "models\\qwen35-4b",
+  "backend": "ollama",
+  "device": "cpu",
+  "dtype": "float32",
+  "fit_file": "calibration.jsonl.gz",
+  "temperature": 1.7,
+  "grid_boundary": false,
+  "fit": {
+    "raw": {
+      "rows": 1200,
+      "skipped": 0,
+      "accuracy": 0.7741666666666667,
+      "nll": 0.5503245780192201,
+      "brier": 0.32214426196839463,
+      "ece_10_bins": 0.10690752944046471
+    },
+    "calibrated": {
+      "rows": 1200,
+      "skipped": 0,
+      "accuracy": 0.7741666666666667,
+      "nll": 0.49457233526600153,
+      "brier": 0.3008693182934617,
+      "ece_10_bins": 0.07377001116057168
+    }
+  },
+  "eval_file": "test.jsonl.gz",
+  "eval": {
+    "raw": {
+      "rows": 1200,
+      "skipped": 0,
+      "accuracy": 0.7733333333333333,
+      "nll": 0.5239982274780691,
+      "brier": 0.31110006126217066,
+      "ece_10_bins": 0.11194458382808718
+    },
+    "calibrated": {
+      "rows": 1200,
+      "skipped": 0,
+      "accuracy": 0.7733333333333333,
+      "nll": 0.47330790709591675,
+      "brier": 0.2895525333216407,
+      "ece_10_bins": 0.07137338416932187
+    }
+  },
+  "eval_by_source": {
+    "customer-control-v1": {
+      "rows": 196,
+      "skipped": 0,
+      "accuracy": 0.4897959183673469,
+      "nll": 0.888763407207054,
+      "brier": 0.5218284663302666,
+      "ece_10_bins": 0.1781381094350899
+    },
+    "workflow-controls-v1/agent_trace_observability": {
+      "rows": 128,
+      "skipped": 0,
+      "accuracy": 0.8359375,
+      "nll": 0.4650752544223902,
+      "brier": 0.29379891714503664,
+      "ece_10_bins": 0.07174666239269528
+    },
+    "workflow-controls-v1/customer_service": {
+      "rows": 149,
+      "skipped": 0,
+      "accuracy": 0.7516778523489933,
+      "nll": 0.5439063803217028,
+      "brier": 0.36645785642903644,
+      "ece_10_bins": 0.16571461117238645
+    },
+    "workflow-controls-v1/invoice_processing": {
+      "rows": 310,
+      "skipped": 0,
+      "accuracy": 0.7709677419354839,
+      "nll": 0.4699401109997979,
+      "brier": 0.3120133203036442,
+      "ece_10_bins": 0.10059942641230317
+    },
+    "workflow-controls-v1/security_incidents": {
+      "rows": 417,
+      "skipped": 0,
+      "accuracy": 0.8968824940047961,
+      "nll": 0.2578387123706966,
+      "brier": 0.13489700069212424,
+      "ece_10_bins": 0.12792256937355517
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "distill": "research\\data\\typelogic-distill-v1",
+  "replay_train": "research\\data\\jev-banking77-catalog-v2-audited\\train.jsonl",
+  "replay_splits": "research\\data\\intent-choice-en-v2",
+  "replay_ratio": 1.0,
+  "eval_replay": 300,
+  "seed": 1701,
+  "max_state": 1024,
+  "dropped_over_length": {
+    "train": 313,
+    "validation": 17,
+    "calibration": 20,
+    "test": 13
+  },
+  "splits": {
+    "train": {
+      "rows": 1128,
+      "sha256": "1dba6186f6a816e63df1459035ddb25f8b6601d79591662ed3308a2f2837db78",
+      "distilled": 564
+    },
+    "validation": {
+      "rows": 334,
+      "sha256": "c86b34ece6cc5ff6949f15730710218772cd8665421767d253c32191594fd226",
+      "distilled": 34
+    },
+    "calibration": {
+      "rows": 332,
+      "sha256": "989af2a7faf31612bb6ff6dffe7f98de03e4bae789fef94a40edbf5d0ef79b30",
+      "distilled": 32
+    },
+    "test": {
+      "rows": 339,
+      "sha256": "b2432ff8520d891c5262f1cc06f7e3954f8655f19f19eff28fbd4df7ca09bec4",
+      "distilled": 39
+    }
+  }
+}

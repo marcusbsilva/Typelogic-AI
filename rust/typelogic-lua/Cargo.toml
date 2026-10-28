@@ -1,0 +1,14 @@
+[package]
+name = "typelogic-lua"
+description = "Lua 5.4 C module of typelogic-core (require typelogic_core)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[lib]
+name = "typelogic_core_lua"
+crate-type = ["cdylib"]
+
+[dependencies]
+typelogic-core = { path = "../typelogic-core" }

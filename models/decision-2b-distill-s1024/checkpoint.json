@@ -1,0 +1,76 @@
+{
+  "base_model": "Qwen/Qwen3.5-2B",
+  "base_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+  "hidden_size": 2048,
+  "trained": true,
+  "training_steps": 282,
+  "best_epoch": 1,
+  "seed": 1701,
+  "configuration": {
+    "base_model": "Qwen/Qwen3.5-2B",
+    "base_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+    "hidden_size": 2048,
+    "lora_rank": 16,
+    "lora_alpha": 32,
+    "learning_rate": 1e-05,
+    "head_learning_rate": 0.0001,
+    "epochs": 2,
+    "gradient_accumulation": 8,
+    "seed": 1701,
+    "max_state": 1024,
+    "max_branch": 4096,
+    "head_dim": 256,
+    "brier_weight": 0.2,
+    "ordinal_weight": 0.1,
+    "permutation_weight": 0.1,
+    "teacher_weights": {
+      "cloudflare/clef-flash": 0.6,
+      "perplexity/pplx-decider-v1.1-27b": 0.3,
+      "typesafe/jev-1.13": 0.1
+    },
+    "gold_weight": 0.7,
+    "training_status": "experimental_distill_warm_start_state1024",
+    "activation_requires": "trained compatible adapter, local weights, held-out evaluation, calibration, CPU parity and XPU smoke",
+    "min_gpu_memory_gib": 12,
+    "recommended_gpu_memory_gib": 16,
+    "xpu_min_gpu_memory_gib": 10.5,
+    "xpu_precision": "fp16"
+  },
+  "precision": "fp16",
+  "device": "xpu",
+  "accelerator_name": "Intel(R) Arc(TM) B580 Graphics",
+  "validation_before": {
+    "loss": 0.5711105853028141,
+    "accuracy": 0.8769230769230769,
+    "questions": 390
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.40351005257005623,
+      "validation": {
+        "loss": 0.31225249982415887,
+        "accuracy": 0.9205128205128205,
+        "questions": 390
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.2482167271825092,
+      "validation": {
+        "loss": 0.3368612242791681,
+        "accuracy": 0.9128205128205128,
+        "questions": 390
+      }
+    }
+  ],
+  "datasets": {
+    "train": "1dba6186f6a816e63df1459035ddb25f8b6601d79591662ed3308a2f2837db78",
+    "validation": "c86b34ece6cc5ff6949f15730710218772cd8665421767d253c32191594fd226",
+    "calibration": "989af2a7faf31612bb6ff6dffe7f98de03e4bae789fef94a40edbf5d0ef79b30",
+    "test": "b2432ff8520d891c5262f1cc06f7e3954f8655f19f19eff28fbd4df7ca09bec4"
+  },
+  "final_test_evaluated": false,
+  "calibration_fitted": false,
+  "deployment_eligible": false
+}

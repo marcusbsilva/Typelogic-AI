@@ -1,0 +1,68 @@
+{
+  "format": "typelogic-template-v1",
+  "id": "billing-duplicate-payment",
+  "title": "Billing · duplicate payment",
+  "description": "Route a billing request and check whether a refund is requested.",
+  "case": "The customer paid twice for one order and asks for the duplicate payment to be refunded. The service still works. There is no deadline today.",
+  "tags": [
+    "billing",
+    "refund",
+    "customer"
+  ],
+  "evidence_schema": [
+    {
+      "name": "duplicate_payment",
+      "type": "boolean",
+      "description": "The customer was charged twice for one order"
+    },
+    {
+      "name": "refund_requested",
+      "type": "boolean",
+      "description": "The customer asks for a refund"
+    },
+    {
+      "name": "service_working",
+      "type": "boolean",
+      "description": "The service still works"
+    },
+    {
+      "name": "deadline_today",
+      "type": "boolean",
+      "description": "There is a deadline today"
+    }
+  ],
+  "evidence": {
+    "duplicate_payment": true,
+    "refund_requested": true,
+    "service_working": true,
+    "deadline_today": false
+  },
+  "decisions": [
+    {
+      "output": "choice",
+      "instructions": "Which team should handle this request?",
+      "criteria": {
+        "0": "Billing — payments and refunds",
+        "1": "IT support — broken software",
+        "2": "Sales — new purchases",
+        "3": "Not enough information to choose"
+      },
+      "abstain_option": "3"
+    },
+    {
+      "output": "boolean",
+      "instructions": "Does the customer ask for a refund?"
+    },
+    {
+      "output": "score",
+      "instructions": "How urgent is this request?",
+      "levels": [
+        "Low: no deadline or blocked service",
+        "High: blocked service or a deadline today"
+      ]
+    }
+  ],
+  "threshold": 0.85,
+  "permutation_check": true,
+  "example": true
+}

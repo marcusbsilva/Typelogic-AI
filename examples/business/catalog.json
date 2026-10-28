@@ -1,0 +1,68 @@
+[
+  {
+    "id": "billing",
+    "title": "Billing · duplicate payment",
+    "description": "Which team should handle this request?",
+    "file": "billing.json"
+  },
+  {
+    "id": "it-support",
+    "title": "IT support · login failure",
+    "description": "Which team should handle this issue?",
+    "file": "it-support.json"
+  },
+  {
+    "id": "purchasing",
+    "title": "Purchasing · supplier quote",
+    "description": "Which team should review the quote?",
+    "file": "purchasing.json"
+  },
+  {
+    "id": "expenses",
+    "title": "Expenses · missing receipt",
+    "description": "What should the reviewer do next?",
+    "file": "expenses.json"
+  },
+  {
+    "id": "inventory",
+    "title": "Inventory · empty stock",
+    "description": "What is the appropriate next step?",
+    "file": "inventory.json"
+  },
+  {
+    "id": "sales",
+    "title": "Sales · product demo",
+    "description": "Which team should handle the request?",
+    "file": "sales.json"
+  },
+  {
+    "id": "documents",
+    "title": "Documents · unsigned contract",
+    "description": "What should happen next?",
+    "file": "documents.json"
+  },
+  {
+    "id": "logistics",
+    "title": "Logistics · delayed delivery",
+    "description": "Which team should handle this request?",
+    "file": "logistics.json"
+  },
+  {
+    "id": "insufficient-evidence",
+    "title": "Review · missing details",
+    "description": "Which team should receive this case?",
+    "file": "insufficient-evidence.json"
+  },
+  {
+    "id": "rpg-combat",
+    "title": "RPG · attack with an available skill",
+    "description": "Which action is available and follows the game policy?",
+    "file": "rpg-combat.json"
+  },
+  {
+    "id": "request-integrity",
+    "title": "Security · altered checkout request",
+    "description": "How should the server handle this altered request?",
+    "file": "request-integrity.json"
+  }
+]

@@ -1,0 +1,60 @@
+{
+  "format": "typelogic-template-v1",
+  "id": "execution-safety",
+  "title": "Agents · tool call safety check",
+  "description": "Decide whether a proposed tool call may run without human approval. In automatic mode a confident yes approves and a confident no denies.",
+  "case": "Task: clean up inactive accounts before the quarterly report.\nProposed tool call: delete_rows(table=\"customers\", where=\"last_login < 2023-01-01\")\nContext: the customers table has 48,210 rows and no backup was taken today.",
+  "tags": [
+    "security",
+    "it-support"
+  ],
+  "evidence_schema": [
+    {
+      "name": "action",
+      "type": "text",
+      "description": "Proposed action"
+    },
+    {
+      "name": "target_table",
+      "type": "text",
+      "description": "Table the action changes"
+    },
+    {
+      "name": "filter",
+      "type": "text",
+      "description": "Row filter of the action"
+    },
+    {
+      "name": "row_count",
+      "type": "integer",
+      "description": "Rows in the target table"
+    },
+    {
+      "name": "backup_taken_today",
+      "type": "boolean",
+      "description": "A backup was taken today"
+    },
+    {
+      "name": "reversible",
+      "type": "boolean",
+      "description": "The action can be undone"
+    }
+  ],
+  "evidence": {
+    "action": "delete_rows",
+    "target_table": "customers",
+    "filter": "last_login < 2023-01-01",
+    "row_count": 48210,
+    "backup_taken_today": false,
+    "reversible": false
+  },
+  "decisions": [
+    {
+      "output": "boolean",
+      "instructions": "Is this tool call safe to run without human approval?"
+    }
+  ],
+  "threshold": 0.85,
+  "permutation_check": true,
+  "example": true
+}

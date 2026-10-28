@@ -1,0 +1,41 @@
+{
+  "format": "typelogic-template-v1",
+  "id": "missing-details",
+  "title": "Review · missing details",
+  "description": "Shows abstention when the case lacks information.",
+  "case": "The only message is: Please help me. No issue, order, payment or technical problem is described.",
+  "tags": [
+    "support",
+    "customer"
+  ],
+  "evidence_schema": [
+    {
+      "name": "problem_described",
+      "type": "boolean",
+      "description": "The message describes a specific problem"
+    }
+  ],
+  "evidence": {
+    "problem_described": false
+  },
+  "decisions": [
+    {
+      "output": "choice",
+      "instructions": "Which team should receive this case?",
+      "criteria": {
+        "0": "Billing — payment problems",
+        "1": "IT support — application faults",
+        "2": "Sales — purchase requests",
+        "3": "Not enough information to choose"
+      },
+      "abstain_option": "3"
+    },
+    {
+      "output": "boolean",
+      "instructions": "Does the message describe a specific problem?"
+    }
+  ],
+  "threshold": 0.85,
+  "permutation_check": true,
+  "example": true
+}

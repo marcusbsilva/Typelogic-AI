@@ -1,0 +1,13 @@
+[package]
+name = "typelogic-core"
+description = "Deterministic decision contracts of TypeLogic AI (Python-compatible JSON, digests, readout, routing)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[lib]
+name = "typelogic_core"
+path = "src/lib.rs"
+
+[dependencies]

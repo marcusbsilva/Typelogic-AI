@@ -1,0 +1,23 @@
+{
+  "title": "Documents · unsigned contract",
+  "state": "A contract is ready for review, but the customer signature field is empty. A signed contract is required before proceeding.",
+  "questions": {
+    "question_1": {
+      "type": "choice",
+      "instructions": "What should happen next?",
+      "criteria": {
+        "A": "Request the missing customer signature",
+        "B": "Proceed as if the contract were signed",
+        "C": "Open a software fault ticket",
+        "X": "Not enough information to choose"
+      },
+      "abstain_option": "X"
+    },
+    "question_2": {
+      "type": "noul",
+      "instructions": "Has the customer signed the contract?"
+    }
+  },
+  "threshold": 0.85,
+  "permutation_check": true
+}

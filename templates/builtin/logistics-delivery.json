@@ -1,0 +1,59 @@
+{
+  "format": "typelogic-template-v1",
+  "id": "logistics-delivery",
+  "title": "Logistics · delayed delivery",
+  "description": "Route a delivery complaint.",
+  "case": "A customer reports that a parcel has not arrived. Tracking says the delivery is delayed. The customer wants the delivery status checked.",
+  "tags": [
+    "logistics",
+    "customer"
+  ],
+  "evidence_schema": [
+    {
+      "name": "parcel_arrived",
+      "type": "boolean",
+      "description": "The parcel has arrived"
+    },
+    {
+      "name": "tracking_status",
+      "type": "enum",
+      "description": "Tracking status",
+      "options": [
+        "in_transit",
+        "delayed",
+        "delivered",
+        "lost"
+      ]
+    },
+    {
+      "name": "status_check_requested",
+      "type": "boolean",
+      "description": "The customer asks for a status check"
+    }
+  ],
+  "evidence": {
+    "parcel_arrived": false,
+    "tracking_status": "delayed",
+    "status_check_requested": true
+  },
+  "decisions": [
+    {
+      "output": "choice",
+      "instructions": "Which team should handle this request?",
+      "criteria": {
+        "0": "Logistics — parcel tracking and delivery",
+        "1": "Billing — duplicate charges",
+        "2": "IT support — application errors",
+        "3": "Not enough information to choose"
+      },
+      "abstain_option": "3"
+    },
+    {
+      "output": "boolean",
+      "instructions": "Has the parcel arrived according to these facts?"
+    }
+  ],
+  "threshold": 0.85,
+  "permutation_check": true,
+  "example": true
+}

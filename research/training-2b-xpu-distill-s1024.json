@@ -1,0 +1,30 @@
+{
+  "base_model": "Qwen/Qwen3.5-2B",
+  "base_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+  "hidden_size": 2048,
+  "lora_rank": 16,
+  "lora_alpha": 32,
+  "learning_rate": 1e-05,
+  "head_learning_rate": 0.0001,
+  "epochs": 2,
+  "gradient_accumulation": 8,
+  "seed": 1701,
+  "max_state": 1024,
+  "max_branch": 4096,
+  "head_dim": 256,
+  "brier_weight": 0.2,
+  "ordinal_weight": 0.1,
+  "permutation_weight": 0.1,
+  "teacher_weights": {
+    "cloudflare/clef-flash": 0.6,
+    "perplexity/pplx-decider-v1.1-27b": 0.3,
+    "typesafe/jev-1.13": 0.1
+  },
+  "gold_weight": 0.7,
+  "training_status": "experimental_distill_warm_start_state1024",
+  "activation_requires": "trained compatible adapter, local weights, held-out evaluation, calibration, CPU parity and XPU smoke",
+  "min_gpu_memory_gib": 12,
+  "recommended_gpu_memory_gib": 16,
+  "xpu_min_gpu_memory_gib": 10.5,
+  "xpu_precision": "fp16"
+}

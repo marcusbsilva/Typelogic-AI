@@ -1,0 +1,60 @@
+{
+  "format": "typelogic-template-v1",
+  "id": "ticket-routing",
+  "title": "Support · ticket routing",
+  "description": "Route a support message to a team, with the key facts as evidence.",
+  "case": "My payout has failed three days in a row and support chat keeps timing out. I need this fixed today.",
+  "tags": [
+    "support",
+    "customer"
+  ],
+  "evidence_schema": [
+    {
+      "name": "payment_related",
+      "type": "boolean",
+      "description": "The message is about a payment or payout"
+    },
+    {
+      "name": "payout_failed_days",
+      "type": "integer",
+      "description": "Consecutive days the payout failed"
+    },
+    {
+      "name": "chat_timeout_reported",
+      "type": "boolean",
+      "description": "The customer reports support chat timeouts"
+    },
+    {
+      "name": "urgency",
+      "type": "enum",
+      "description": "Urgency stated by the customer",
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ]
+    }
+  ],
+  "evidence": {
+    "payment_related": true,
+    "payout_failed_days": 3,
+    "chat_timeout_reported": true,
+    "urgency": "high"
+  },
+  "decisions": [
+    {
+      "output": "choice",
+      "instructions": "Which team should handle this request?",
+      "criteria": {
+        "0": "Billing — Payments and refunds",
+        "1": "Technical — Software failures",
+        "2": "Sales — Purchasing and pricing",
+        "3": "Not enough information to choose"
+      },
+      "abstain_option": "3"
+    }
+  ],
+  "threshold": 0.85,
+  "permutation_check": true,
+  "example": true
+}

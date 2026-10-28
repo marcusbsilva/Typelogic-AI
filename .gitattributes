@@ -1,0 +1,12 @@
+# Keep exact bytes: these files are hashed by MODEL-PARITY.json and the model manifests.
+models/** -text
+research/runs/** -text
+MODEL-PARITY.json -text
+*.bat text eol=crlf
+*.sh text eol=lf
+*.png binary
+research/training-*.json -text
+research/qwen35-2b-assets.json -text
+*.py text eol=lf
+*.ts text eol=lf
+*.md text eol=lf

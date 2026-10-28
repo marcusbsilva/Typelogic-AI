@@ -1,0 +1,52 @@
+{
+  "format": "typelogic-template-v1",
+  "id": "sales-demo",
+  "title": "Sales · product demo",
+  "description": "Route a sales request.",
+  "case": "A prospective customer asks to schedule a demonstration of our product. They are not reporting a technical fault or a billing problem.",
+  "tags": [
+    "sales"
+  ],
+  "evidence_schema": [
+    {
+      "name": "demo_requested",
+      "type": "boolean",
+      "description": "A product demonstration is requested"
+    },
+    {
+      "name": "technical_fault",
+      "type": "boolean",
+      "description": "A technical fault is reported"
+    },
+    {
+      "name": "billing_problem",
+      "type": "boolean",
+      "description": "A billing problem is reported"
+    }
+  ],
+  "evidence": {
+    "demo_requested": true,
+    "technical_fault": false,
+    "billing_problem": false
+  },
+  "decisions": [
+    {
+      "output": "choice",
+      "instructions": "Which team should handle the request?",
+      "criteria": {
+        "0": "Sales — product demonstrations",
+        "1": "IT support — technical faults",
+        "2": "Billing — payment problems",
+        "3": "Not enough information to choose"
+      },
+      "abstain_option": "3"
+    },
+    {
+      "output": "boolean",
+      "instructions": "Did the customer request a product demonstration?"
+    }
+  ],
+  "threshold": 0.85,
+  "permutation_check": true,
+  "example": true
+}

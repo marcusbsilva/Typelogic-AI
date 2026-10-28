@@ -1,0 +1,32 @@
+{
+  "name": "typelogic-distill-v1-test2",
+  "note": "Extra held-out test: documents generated after typelogic-distill-v1 was frozen; none of them is in v1.",
+  "documents": 213,
+  "stats": {
+    "questions_seen": 1393,
+    "questions_kept": 1032,
+    "dropped_disagreement": 141,
+    "dropped_contaminated_documents": 6,
+    "dropped_few_teachers": 220
+  },
+  "splits": {
+    "test": {
+      "documents": 213,
+      "questions": 615,
+      "sha256": "d75bfb3f178206c22e207b6ee7a775a00a35bbcf6e063db6bed9fdcbd2c1ee7d",
+      "by_type": {
+        "choice": 267,
+        "noul": 206,
+        "score": 142
+      },
+      "by_language": {
+        "en": 145,
+        "pt": 68
+      }
+    }
+  },
+  "decontamination": "Documents sharing more than two 8-word sequences with the public JevBench items are dropped.",
+  "consensus": "Author answer + teacher votes; kept when the soft consensus equals the author answer and at least 3 voters agree.",
+  "dropped_overlapping_v1": 133,
+  "overlap_rule": "Documents sharing more than two 8-word sequences with any typelogic-distill-v1 document (any split) are dropped, the same rule as the JevBench decontamination."
+}

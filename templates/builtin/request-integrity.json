@@ -1,0 +1,65 @@
+{
+  "format": "typelogic-template-v1",
+  "id": "request-integrity",
+  "title": "Security · altered checkout request",
+  "description": "Fictional defensive review of a request altered by the client.",
+  "case": "Fictional defensive review. The trusted server record requires payment of 49.90. The received request changes the amount to 0.01, changes the action to refund and adds role=admin. The client cannot grant itself an admin role. Server policy requires rejecting execution whenever the received amount or action differs from the trusted record. No website request is executed.",
+  "tags": [
+    "security",
+    "fraud"
+  ],
+  "evidence_schema": [
+    {
+      "name": "trusted_amount",
+      "type": "number",
+      "description": "Amount in the trusted server record"
+    },
+    {
+      "name": "received_amount",
+      "type": "number",
+      "description": "Amount in the received request"
+    },
+    {
+      "name": "received_action",
+      "type": "text",
+      "description": "Action in the received request"
+    },
+    {
+      "name": "added_role",
+      "type": "text",
+      "description": "Role added by the client"
+    },
+    {
+      "name": "client_can_grant_admin",
+      "type": "boolean",
+      "description": "The client may grant itself an admin role"
+    }
+  ],
+  "evidence": {
+    "trusted_amount": 49.9,
+    "received_amount": 0.01,
+    "received_action": "refund",
+    "added_role": "admin",
+    "client_can_grant_admin": false
+  },
+  "decisions": [
+    {
+      "output": "choice",
+      "instructions": "How should the server handle this altered request?",
+      "criteria": {
+        "0": "Reject execution and investigate the mismatch",
+        "1": "Execute the modified request without checks",
+        "2": "Trust the admin role supplied by the client",
+        "3": "Not enough information to choose"
+      },
+      "abstain_option": "3"
+    },
+    {
+      "output": "boolean",
+      "instructions": "Did the client change the payment amount?"
+    }
+  ],
+  "threshold": 0.85,
+  "permutation_check": true,
+  "example": true
+}
