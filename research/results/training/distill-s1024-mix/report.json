@@ -1,0 +1,848 @@
+{
+  "base_model": "Qwen/Qwen3.5-2B",
+  "best_epoch": 1,
+  "training_steps": 282,
+  "identity": {
+    "script_sha256": "3d130c4b85fa0f2d74cecf445bd73447695529fd926b19c66c64751fbf10402d",
+    "protocol_sha256": "12209642da7679dd6c7854bcc760e3abeb73e6b3826e2811273adab2f1704c7f",
+    "datasets": {
+      "train": "1dba6186f6a816e63df1459035ddb25f8b6601d79591662ed3308a2f2837db78",
+      "validation": "c86b34ece6cc5ff6949f15730710218772cd8665421767d253c32191594fd226",
+      "calibration": "989af2a7faf31612bb6ff6dffe7f98de03e4bae789fef94a40edbf5d0ef79b30",
+      "test": "b2432ff8520d891c5262f1cc06f7e3954f8655f19f19eff28fbd4df7ca09bec4"
+    },
+    "checkpoint_datasets": {
+      "train": "1dba6186f6a816e63df1459035ddb25f8b6601d79591662ed3308a2f2837db78",
+      "validation": "c86b34ece6cc5ff6949f15730710218772cd8665421767d253c32191594fd226",
+      "calibration": "989af2a7faf31612bb6ff6dffe7f98de03e4bae789fef94a40edbf5d0ef79b30",
+      "test": "b2432ff8520d891c5262f1cc06f7e3954f8655f19f19eff28fbd4df7ca09bec4"
+    },
+    "dataset_matches_checkpoint": true,
+    "checkpoint_sha256": "a881756a7c89753757daded7d6dd4414ecec1bf2e5a4a6deb261fc6ce1e71e9a",
+    "adapter_sha256": {
+      "adapter_config.json": "53476968e43ad3bfd3b62801291b1d7ada70dc35b0885d554696a8ffa9396eb4",
+      "adapter_model.safetensors": "0f4eca7d9f42072cc4ad195b46f40735e5ec59a3b6a98520c50c928a7faf64dd",
+      "head.pt": "56120b1a78c977cfd1f8709fbc7d6d95cb9669b439235a3e764aee6627e26447"
+    },
+    "precision": "fp16",
+    "device": "xpu",
+    "accelerator": "Intel(R) Arc(TM) B580 Graphics",
+    "limit": null,
+    "torch": "2.14.1+xpu",
+    "transformers": "5.19.0",
+    "peft": "0.21.2"
+  },
+  "partial": false,
+  "validation_reproduction": {
+    "performed": true,
+    "expected_accuracy": 0.9205128205128205,
+    "loaded_accuracy": 0.9205128205128205,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0
+  },
+  "validation": {
+    "raw": {
+      "questions": 390,
+      "correct": 359,
+      "accuracy": 0.9205128205128205,
+      "nll": 0.2915107952885907,
+      "brier": 0.10126965181967426,
+      "ece_10_bins": 0.01953410788722889,
+      "accuracy_wilson_95": [
+        0.8893827955273084,
+        0.9434393339785638
+      ]
+    },
+    "calibrated": {
+      "questions": 390,
+      "correct": 359,
+      "accuracy": 0.9205128205128205,
+      "nll": 0.2763953832615134,
+      "brier": 0.09989059832540322,
+      "ece_10_bins": 0.01955446199665477,
+      "accuracy_wilson_95": [
+        0.8893827955273084,
+        0.9434393339785638
+      ]
+    }
+  },
+  "calibration": {
+    "temperature": 1.3127172817555686,
+    "fit_split": "calibration",
+    "baseline": {
+      "questions": 382,
+      "correct": 359,
+      "accuracy": 0.9397905759162304,
+      "nll": 0.288717852538394,
+      "brier": 0.08515126435829933,
+      "ece_10_bins": 0.022586568926045096,
+      "accuracy_wilson_95": [
+        0.9112757699298103,
+        0.9595479048631618
+      ]
+    },
+    "fitted": {
+      "questions": 382,
+      "correct": 359,
+      "accuracy": 0.9397905759162304,
+      "nll": 0.27148190838536895,
+      "brier": 0.08839820268786219,
+      "ece_10_bins": 0.03881816334352985,
+      "accuracy_wilson_95": [
+        0.9112757699298103,
+        0.9595479048631618
+      ]
+    },
+    "grid_boundary": false,
+    "applied_to_original_checkpoint": false
+  },
+  "test": {
+    "raw": {
+      "questions": 407,
+      "correct": 364,
+      "accuracy": 0.8943488943488943,
+      "nll": 0.4198708583884873,
+      "brier": 0.1548403324565779,
+      "ece_10_bins": 0.044333399237341024,
+      "accuracy_wilson_95": [
+        0.860709521924996,
+        0.9206134989180733
+      ]
+    },
+    "calibrated": {
+      "questions": 407,
+      "correct": 364,
+      "accuracy": 0.8943488943488943,
+      "nll": 0.3896337508353486,
+      "brier": 0.15501719203285763,
+      "ece_10_bins": 0.05010758149416069,
+      "accuracy_wilson_95": [
+        0.860709521924996,
+        0.9206134989180733
+      ]
+    }
+  },
+  "seconds_this_execution": 288.34300000000076,
+  "peak_accelerator_memory_gib": 7.754532337188721,
+  "deployment_eligible": false,
+  "checkpoint_modified": false,
+  "scope": "Checkpoint evaluated without updating weights. The test split was used for earlier diagnostics, so this is a held-out diagnostic, not an independent benchmark. Accelerator mixed precision; CPU deployment parity is checked separately.",
+  "by_language_type": {
+    "validation": {
+      "en/choice": {
+        "raw": {
+          "questions": 329,
+          "correct": 309,
+          "accuracy": 0.939209726443769,
+          "nll": 0.25330799869700044,
+          "brier": 0.08507057915909197,
+          "ece_10_bins": 0.021441609149170548,
+          "accuracy_wilson_95": [
+            0.9079741280901018,
+            0.9603067598758254
+          ]
+        },
+        "calibrated": {
+          "questions": 329,
+          "correct": 309,
+          "accuracy": 0.939209726443769,
+          "nll": 0.2362113666094139,
+          "brier": 0.0839327461887886,
+          "ece_10_bins": 0.01906824889035165,
+          "accuracy_wilson_95": [
+            0.9079741280901018,
+            0.9603067598758254
+          ]
+        }
+      },
+      "en/noul": {
+        "raw": {
+          "questions": 26,
+          "correct": 22,
+          "accuracy": 0.8461538461538461,
+          "nll": 0.355263471644217,
+          "brier": 0.16161733890793445,
+          "ece_10_bins": 0.11956476574440018,
+          "accuracy_wilson_95": [
+            0.6646841558168644,
+            0.9385006600107053
+          ]
+        },
+        "calibrated": {
+          "questions": 26,
+          "correct": 22,
+          "accuracy": 0.8461538461538461,
+          "nll": 0.32968637557892017,
+          "brier": 0.15012301804594122,
+          "ece_10_bins": 0.037635118185354983,
+          "accuracy_wilson_95": [
+            0.6646841558168644,
+            0.9385006600107053
+          ]
+        }
+      },
+      "en/score": {
+        "raw": {
+          "questions": 19,
+          "correct": 13,
+          "accuracy": 0.6842105263157895,
+          "nll": 0.7997295697285609,
+          "brier": 0.28501266485920523,
+          "ece_10_bins": 0.10577459412658556,
+          "accuracy_wilson_95": [
+            0.4601001017506463,
+            0.846358289955714
+          ]
+        },
+        "calibrated": {
+          "questions": 19,
+          "correct": 13,
+          "accuracy": 0.6842105263157895,
+          "nll": 0.7956419268999753,
+          "brier": 0.27981051208300495,
+          "ece_10_bins": 0.15234800440747467,
+          "accuracy_wilson_95": [
+            0.4601001017506463,
+            0.846358289955714
+          ]
+        }
+      },
+      "pt/choice": {
+        "raw": {
+          "questions": 7,
+          "correct": 7,
+          "accuracy": 1.0,
+          "nll": 0.3167587588230493,
+          "brier": 0.06484591354493373,
+          "ece_10_bins": 0.14281770360273394,
+          "accuracy_wilson_95": [
+            0.6456611570247934,
+            1.0
+          ]
+        },
+        "calibrated": {
+          "questions": 7,
+          "correct": 7,
+          "accuracy": 1.0,
+          "nll": 0.35001802440064633,
+          "brier": 0.07791908840149127,
+          "ece_10_bins": 0.1894576686107173,
+          "accuracy_wilson_95": [
+            0.6456611570247934,
+            1.0
+          ]
+        }
+      },
+      "pt/noul": {
+        "raw": {
+          "questions": 6,
+          "correct": 6,
+          "accuracy": 1.0,
+          "nll": 0.22748709880536325,
+          "brier": 0.0377653814917176,
+          "ece_10_bins": 0.08782094592361804,
+          "accuracy_wilson_95": [
+            0.6096569663469354,
+            0.9999999999999999
+          ]
+        },
+        "calibrated": {
+          "questions": 6,
+          "correct": 6,
+          "accuracy": 1.0,
+          "nll": 0.23785243333592707,
+          "brier": 0.047994103003064975,
+          "ece_10_bins": 0.1222982501333268,
+          "accuracy_wilson_95": [
+            0.6096569663469354,
+            0.9999999999999999
+          ]
+        }
+      },
+      "pt/score": {
+        "raw": {
+          "questions": 3,
+          "correct": 2,
+          "accuracy": 0.6666666666666666,
+          "nll": 0.7789775330171587,
+          "brier": 0.40304617954521565,
+          "ece_10_bins": 0.11065380096357498,
+          "accuracy_wilson_95": [
+            0.2076549551264879,
+            0.9385096847238394
+          ]
+        },
+        "calibrated": {
+          "questions": 3,
+          "correct": 2,
+          "accuracy": 0.6666666666666666,
+          "nll": 0.8381255701738551,
+          "brier": 0.43015447173179494,
+          "ece_10_bins": 0.13491801739981144,
+          "accuracy_wilson_95": [
+            0.2076549551264879,
+            0.9385096847238394
+          ]
+        }
+      }
+    },
+    "calibration": {
+      "en/choice": {
+        "raw": {
+          "questions": 320,
+          "correct": 304,
+          "accuracy": 0.95,
+          "nll": 0.27676609516214024,
+          "brier": 0.08190361466282624,
+          "ece_10_bins": 0.028212685177561377,
+          "accuracy_wilson_95": [
+            0.920331421287444,
+            0.9689922480620154
+          ]
+        },
+        "calibrated": {
+          "questions": 320,
+          "correct": 304,
+          "accuracy": 0.95,
+          "nll": 0.25205157322525273,
+          "brier": 0.08384851494105726,
+          "ece_10_bins": 0.03419242306454399,
+          "accuracy_wilson_95": [
+            0.920331421287444,
+            0.9689922480620154
+          ]
+        }
+      },
+      "en/noul": {
+        "raw": {
+          "questions": 19,
+          "correct": 19,
+          "accuracy": 1.0,
+          "nll": 0.04680978438991572,
+          "brier": 0.00835995682312718,
+          "ece_10_bins": 0.034597267586430135,
+          "accuracy_wilson_95": [
+            0.8318156346315496,
+            1.0000000000000002
+          ]
+        },
+        "calibrated": {
+          "questions": 19,
+          "correct": 19,
+          "accuracy": 1.0,
+          "nll": 0.07387899906913871,
+          "brier": 0.015915523539158195,
+          "ece_10_bins": 0.06152152765637072,
+          "accuracy_wilson_95": [
+            0.8318156346315496,
+            1.0000000000000002
+          ]
+        }
+      },
+      "en/score": {
+        "raw": {
+          "questions": 11,
+          "correct": 8,
+          "accuracy": 0.7272727272727273,
+          "nll": 0.8101821109379582,
+          "brier": 0.18413610039493236,
+          "ece_10_bins": 0.12210200356786577,
+          "accuracy_wilson_95": [
+            0.4343497069897537,
+            0.9025411942607853
+          ]
+        },
+        "calibrated": {
+          "questions": 11,
+          "correct": 8,
+          "accuracy": 0.7272727272727273,
+          "nll": 0.8088661502107125,
+          "brier": 0.20181794857460986,
+          "ece_10_bins": 0.10808647454509628,
+          "accuracy_wilson_95": [
+            0.4343497069897537,
+            0.9025411942607853
+          ]
+        }
+      },
+      "pt/choice": {
+        "raw": {
+          "questions": 12,
+          "correct": 12,
+          "accuracy": 1.0,
+          "nll": 0.2616980364039,
+          "brier": 0.05965900146137044,
+          "ece_10_bins": 0.12740140471517036,
+          "accuracy_wilson_95": [
+            0.7574992425007574,
+            1.0
+          ]
+        },
+        "calibrated": {
+          "questions": 12,
+          "correct": 12,
+          "accuracy": 1.0,
+          "nll": 0.31225616182119975,
+          "brier": 0.08766078400666494,
+          "ece_10_bins": 0.18580348709425695,
+          "accuracy_wilson_95": [
+            0.7574992425007574,
+            1.0
+          ]
+        }
+      },
+      "pt/noul": {
+        "raw": {
+          "questions": 11,
+          "correct": 10,
+          "accuracy": 0.9090909090909091,
+          "nll": 0.21305509233164194,
+          "brier": 0.12892483571568014,
+          "ece_10_bins": 0.07562885694321143,
+          "accuracy_wilson_95": [
+            0.6226353745137962,
+            0.9837682477371741
+          ]
+        },
+        "calibrated": {
+          "questions": 11,
+          "correct": 10,
+          "accuracy": 0.9090909090909091,
+          "nll": 0.23655450100146694,
+          "brier": 0.13802769109598229,
+          "ece_10_bins": 0.07795504376303354,
+          "accuracy_wilson_95": [
+            0.6226353745137962,
+            0.9837682477371741
+          ]
+        }
+      },
+      "pt/score": {
+        "raw": {
+          "questions": 9,
+          "correct": 6,
+          "accuracy": 0.6666666666666666,
+          "nll": 0.7155219601734185,
+          "brier": 0.22224542204148268,
+          "ece_10_bins": 0.2540365364555345,
+          "accuracy_wilson_95": [
+            0.35419734749908977,
+            0.879418401317257
+          ]
+        },
+        "calibrated": {
+          "questions": 9,
+          "correct": 6,
+          "accuracy": 0.6666666666666666,
+          "nll": 0.7110203870697851,
+          "brier": 0.20488469488050262,
+          "ece_10_bins": 0.2790692421659158,
+          "accuracy_wilson_95": [
+            0.35419734749908977,
+            0.879418401317257
+          ]
+        }
+      }
+    },
+    "test": {
+      "en/choice": {
+        "raw": {
+          "questions": 330,
+          "correct": 300,
+          "accuracy": 0.9090909090909091,
+          "nll": 0.41479077392050284,
+          "brier": 0.15395136498449727,
+          "ece_10_bins": 0.05552486747652052,
+          "accuracy_wilson_95": [
+            0.873187669192238,
+            0.935579123202718
+          ]
+        },
+        "calibrated": {
+          "questions": 330,
+          "correct": 300,
+          "accuracy": 0.9090909090909091,
+          "nll": 0.3743494859105739,
+          "brier": 0.15395728502640327,
+          "ece_10_bins": 0.06192834943120751,
+          "accuracy_wilson_95": [
+            0.873187669192238,
+            0.935579123202718
+          ]
+        }
+      },
+      "en/noul": {
+        "raw": {
+          "questions": 26,
+          "correct": 25,
+          "accuracy": 0.9615384615384616,
+          "nll": 0.23418498822309175,
+          "brier": 0.06573875392719014,
+          "ece_10_bins": 0.09784913059587194,
+          "accuracy_wilson_95": [
+            0.811068230080416,
+            0.9931781910230102
+          ]
+        },
+        "calibrated": {
+          "questions": 26,
+          "correct": 25,
+          "accuracy": 0.9615384615384616,
+          "nll": 0.23267438721491704,
+          "brier": 0.06717701454525292,
+          "ece_10_bins": 0.10776283461167206,
+          "accuracy_wilson_95": [
+            0.811068230080416,
+            0.9931781910230102
+          ]
+        }
+      },
+      "en/score": {
+        "raw": {
+          "questions": 16,
+          "correct": 12,
+          "accuracy": 0.75,
+          "nll": 0.5816736529687019,
+          "brier": 0.2425010718279418,
+          "ece_10_bins": 0.2599503520184093,
+          "accuracy_wilson_95": [
+            0.5050123107060135,
+            0.8981809801576265
+          ]
+        },
+        "calibrated": {
+          "questions": 16,
+          "correct": 12,
+          "accuracy": 0.75,
+          "nll": 0.6195596646779885,
+          "brier": 0.24654431529634432,
+          "ece_10_bins": 0.29458396549649435,
+          "accuracy_wilson_95": [
+            0.5050123107060135,
+            0.8981809801576265
+          ]
+        }
+      },
+      "pt/choice": {
+        "raw": {
+          "questions": 13,
+          "correct": 11,
+          "accuracy": 0.8461538461538461,
+          "nll": 0.5620175496829543,
+          "brier": 0.16527471201777974,
+          "ece_10_bins": 0.23275452869520294,
+          "accuracy_wilson_95": [
+            0.5776482949136899,
+            0.9567427368172621
+          ]
+        },
+        "calibrated": {
+          "questions": 13,
+          "correct": 11,
+          "accuracy": 0.8461538461538461,
+          "nll": 0.5994869021918752,
+          "brier": 0.17873667246222538,
+          "ece_10_bins": 0.19932473538440784,
+          "accuracy_wilson_95": [
+            0.5776482949136899,
+            0.9567427368172621
+          ]
+        }
+      },
+      "pt/noul": {
+        "raw": {
+          "questions": 12,
+          "correct": 9,
+          "accuracy": 0.75,
+          "nll": 0.35807816651724894,
+          "brier": 0.2284255878859283,
+          "ece_10_bins": 0.19833858214664102,
+          "accuracy_wilson_95": [
+            0.46768966087934005,
+            0.9110599603710386
+          ]
+        },
+        "calibrated": {
+          "questions": 12,
+          "correct": 9,
+          "accuracy": 0.75,
+          "nll": 0.3229405140651765,
+          "brier": 0.1952340302182568,
+          "ece_10_bins": 0.19841570245169615,
+          "accuracy_wilson_95": [
+            0.46768966087934005,
+            0.9110599603710386
+          ]
+        }
+      },
+      "pt/score": {
+        "raw": {
+          "questions": 10,
+          "correct": 7,
+          "accuracy": 0.7,
+          "nll": 0.7007729684963235,
+          "brier": 0.17371618027268224,
+          "ece_10_bins": 0.2709679872790963,
+          "accuracy_wilson_95": [
+            0.39677321997956516,
+            0.892210712513788
+          ]
+        },
+        "calibrated": {
+          "questions": 10,
+          "correct": 7,
+          "accuracy": 0.7,
+          "nll": 0.7414501639785431,
+          "brier": 0.1928396571113915,
+          "ece_10_bins": 0.29901045455626096,
+          "accuracy_wilson_95": [
+            0.39677321997956516,
+            0.892210712513788
+          ]
+        }
+      }
+    }
+  },
+  "by_source": {
+    "validation": {
+      "banking77": {
+        "raw": {
+          "questions": 110,
+          "correct": 101,
+          "accuracy": 0.9181818181818182,
+          "nll": 0.3862223736620679,
+          "brier": 0.13206113472130043,
+          "ece_10_bins": 0.04856411675917674,
+          "accuracy_wilson_95": [
+            0.8517805850797745,
+            0.9563598486456827
+          ]
+        },
+        "calibrated": {
+          "questions": 110,
+          "correct": 101,
+          "accuracy": 0.9181818181818182,
+          "nll": 0.3493141147457211,
+          "brier": 0.1275684635730903,
+          "ece_10_bins": 0.04026505592545993,
+          "accuracy_wilson_95": [
+            0.8517805850797745,
+            0.9563598486456827
+          ]
+        }
+      },
+      "clinc150": {
+        "raw": {
+          "questions": 190,
+          "correct": 186,
+          "accuracy": 0.9789473684210527,
+          "nll": 0.10336187606921321,
+          "brier": 0.033370760755537174,
+          "ece_10_bins": 0.011749301170241167,
+          "accuracy_wilson_95": [
+            0.9471274961448701,
+            0.9917834496995719
+          ]
+        },
+        "calibrated": {
+          "questions": 190,
+          "correct": 186,
+          "accuracy": 0.9789473684210527,
+          "nll": 0.09780390035411496,
+          "brier": 0.03377327884058189,
+          "ece_10_bins": 0.010428282274511605,
+          "accuracy_wilson_95": [
+            0.9471274961448701,
+            0.9917834496995719
+          ]
+        }
+      },
+      "typelogic-distill-v1": {
+        "raw": {
+          "questions": 90,
+          "correct": 72,
+          "accuracy": 0.8,
+          "nll": 0.5729554734063607,
+          "brier": 0.20697772051975377,
+          "ece_10_bins": 0.05023133741238963,
+          "accuracy_wilson_95": [
+            0.7058607285729566,
+            0.8695770303740351
+          ]
+        },
+        "calibrated": {
+          "questions": 90,
+          "correct": 72,
+          "accuracy": 0.8,
+          "nll": 0.5642989531408789,
+          "brier": 0.205643104157297,
+          "ece_10_bins": 0.06590623223859893,
+          "accuracy_wilson_95": [
+            0.7058607285729566,
+            0.8695770303740351
+          ]
+        }
+      }
+    },
+    "calibration": {
+      "banking77": {
+        "raw": {
+          "questions": 111,
+          "correct": 106,
+          "accuracy": 0.954954954954955,
+          "nll": 0.20917385175666015,
+          "brier": 0.07922890795428159,
+          "ece_10_bins": 0.03602667460579447,
+          "accuracy_wilson_95": [
+            0.8988637210991925,
+            0.980608525891445
+          ]
+        },
+        "calibrated": {
+          "questions": 111,
+          "correct": 106,
+          "accuracy": 0.954954954954955,
+          "nll": 0.21531170163853727,
+          "brier": 0.08285623958653006,
+          "ece_10_bins": 0.04260904931086434,
+          "accuracy_wilson_95": [
+            0.8988637210991925,
+            0.980608525891445
+          ]
+        }
+      },
+      "clinc150": {
+        "raw": {
+          "questions": 189,
+          "correct": 180,
+          "accuracy": 0.9523809523809523,
+          "nll": 0.30077656481454196,
+          "brier": 0.08116914077282383,
+          "ece_10_bins": 0.030971318998625433,
+          "accuracy_wilson_95": [
+            0.9119897507501151,
+            0.9747483804414949
+          ]
+        },
+        "calibrated": {
+          "questions": 189,
+          "correct": 180,
+          "accuracy": 0.9523809523809523,
+          "nll": 0.2507777941442481,
+          "brier": 0.08046960829861777,
+          "ece_10_bins": 0.030486001145656933,
+          "accuracy_wilson_95": [
+            0.9119897507501151,
+            0.9747483804414949
+          ]
+        }
+      },
+      "typelogic-distill-v1": {
+        "raw": {
+          "questions": 82,
+          "correct": 73,
+          "accuracy": 0.8902439024390244,
+          "nll": 0.3685994070088881,
+          "brier": 0.10234642190099247,
+          "ece_10_bins": 0.07207948883005244,
+          "accuracy_wilson_95": [
+            0.8043857417083992,
+            0.94117352093349
+          ]
+        },
+        "calibrated": {
+          "questions": 82,
+          "correct": 73,
+          "accuracy": 0.8902439024390244,
+          "nll": 0.3952376466837844,
+          "brier": 0.11417457151487538,
+          "ece_10_bins": 0.12106916510720617,
+          "accuracy_wilson_95": [
+            0.8043857417083992,
+            0.94117352093349
+          ]
+        }
+      }
+    },
+    "test": {
+      "banking77": {
+        "raw": {
+          "questions": 103,
+          "correct": 96,
+          "accuracy": 0.9320388349514563,
+          "nll": 0.3763716487425873,
+          "brier": 0.11424339892359976,
+          "ece_10_bins": 0.03685846623066707,
+          "accuracy_wilson_95": [
+            0.8663161806994147,
+            0.9666926847612299
+          ]
+        },
+        "calibrated": {
+          "questions": 103,
+          "correct": 96,
+          "accuracy": 0.9320388349514563,
+          "nll": 0.33363199687960465,
+          "brier": 0.11265944572787161,
+          "ece_10_bins": 0.059513648335007614,
+          "accuracy_wilson_95": [
+            0.8663161806994147,
+            0.9666926847612299
+          ]
+        }
+      },
+      "clinc150": {
+        "raw": {
+          "questions": 197,
+          "correct": 177,
+          "accuracy": 0.8984771573604061,
+          "nll": 0.4111056231772792,
+          "brier": 0.1716330955697362,
+          "ece_10_bins": 0.07428443898300859,
+          "accuracy_wilson_95": [
+            0.8483955680392253,
+            0.9333149939160669
+          ]
+        },
+        "calibrated": {
+          "questions": 197,
+          "correct": 177,
+          "accuracy": 0.8984771573604061,
+          "nll": 0.36198615321543715,
+          "brier": 0.16892685947683458,
+          "ece_10_bins": 0.06998673268516109,
+          "accuracy_wilson_95": [
+            0.8483955680392253,
+            0.9333149939160669
+          ]
+        }
+      },
+      "typelogic-distill-v1": {
+        "raw": {
+          "questions": 107,
+          "correct": 91,
+          "accuracy": 0.8504672897196262,
+          "nll": 0.4778817923149875,
+          "brier": 0.16300210648091973,
+          "ece_10_bins": 0.05885669665902625,
+          "accuracy_wilson_95": [
+            0.7708287680780948,
+            0.9058124929646907
+          ]
+        },
+        "calibrated": {
+          "questions": 107,
+          "correct": 91,
+          "accuracy": 0.8504672897196262,
+          "nll": 0.4944445675509026,
+          "brier": 0.17018208346229818,
+          "ece_10_bins": 0.09190344667319107,
+          "accuracy_wilson_95": [
+            0.7708287680780948,
+            0.9058124929646907
+          ]
+        }
+      }
+    }
+  }
+}

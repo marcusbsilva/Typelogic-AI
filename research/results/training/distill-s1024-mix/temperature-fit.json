@@ -1,0 +1,30 @@
+{
+  "temperature": 1.3127172817555686,
+  "fit_split": "calibration",
+  "baseline": {
+    "questions": 382,
+    "correct": 359,
+    "accuracy": 0.9397905759162304,
+    "nll": 0.288717852538394,
+    "brier": 0.08515126435829933,
+    "ece_10_bins": 0.022586568926045096,
+    "accuracy_wilson_95": [
+      0.9112757699298103,
+      0.9595479048631618
+    ]
+  },
+  "fitted": {
+    "questions": 382,
+    "correct": 359,
+    "accuracy": 0.9397905759162304,
+    "nll": 0.27148190838536895,
+    "brier": 0.08839820268786219,
+    "ece_10_bins": 0.03881816334352985,
+    "accuracy_wilson_95": [
+      0.9112757699298103,
+      0.9595479048631618
+    ]
+  },
+  "grid_boundary": false,
+  "applied_to_original_checkpoint": false
+}

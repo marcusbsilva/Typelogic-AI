@@ -1,0 +1,21 @@
+{
+  "title": "RPG · attack with an available skill",
+  "state": "A short RPG fight: turn 1, the player approaches; turn 2, the monster blocks; turn 3, it is the monster turn. The monster has 60/80 HP and zero mana. The enemy player is 1 meter away. Claw is ready, costs zero mana and reaches 2 meters. Frost Snare costs 10 mana. Heal costs 20 mana. The retreat path is blocked. Game policy: use an available attack when healthy and unable to retreat.",
+  "questions": {
+    "question_1": {
+      "type": "choice",
+      "instructions": "Which action is available and follows the game policy?",
+      "criteria": {
+        "A": "Attack the nearby player with Claw",
+        "B": "Use Frost Snare without the required mana",
+        "C": "Use Heal without the required mana"
+      }
+    },
+    "question_2": {
+      "type": "noul",
+      "instructions": "Does the monster have enough mana to use Heal?"
+    }
+  },
+  "threshold": 0.85,
+  "permutation_check": true
+}

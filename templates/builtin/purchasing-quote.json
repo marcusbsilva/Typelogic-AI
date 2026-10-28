@@ -1,0 +1,53 @@
+{
+  "format": "typelogic-template-v1",
+  "id": "purchasing-quote",
+  "title": "Purchasing · supplier quote",
+  "description": "Route a supplier quote and check its stated total.",
+  "case": "A buyer received a supplier quote: one item costs 40.00 and another costs 60.00. The quote states a total of 100.00. The buyer needs the purchasing team to review it.",
+  "tags": [
+    "purchasing",
+    "finance"
+  ],
+  "evidence_schema": [
+    {
+      "name": "first_item_price",
+      "type": "number",
+      "description": "Price of the first item"
+    },
+    {
+      "name": "second_item_price",
+      "type": "number",
+      "description": "Price of the second item"
+    },
+    {
+      "name": "stated_total",
+      "type": "number",
+      "description": "Total stated in the quote"
+    }
+  ],
+  "evidence": {
+    "first_item_price": 40.0,
+    "second_item_price": 60.0,
+    "stated_total": 100.0
+  },
+  "decisions": [
+    {
+      "output": "choice",
+      "instructions": "Which team should review the quote?",
+      "criteria": {
+        "0": "Purchasing — supplier quotes",
+        "1": "IT support — software errors",
+        "2": "Customer support — delivery complaints",
+        "3": "Not enough information to choose"
+      },
+      "abstain_option": "3"
+    },
+    {
+      "output": "boolean",
+      "instructions": "Does the quote state a total of 100.00?"
+    }
+  ],
+  "threshold": 0.85,
+  "permutation_check": true,
+  "example": true
+}

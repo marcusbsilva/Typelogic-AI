@@ -1,0 +1,1908 @@
+{
+ "tl-distill-ee46a2f9d49466f9": {
+  "fields": [
+   {
+    "name": "case_id",
+    "type": "text",
+    "value": "#89421",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "customer_name",
+    "type": "text",
+    "value": "Apex Logistics",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "customer_vip_tier",
+    "type": "text",
+    "value": "Gold",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "billing_error_amount",
+    "type": "number",
+    "value": 450,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "invoice_date",
+    "type": "date",
+    "value": "2023-10-10",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "resolution_window_hours",
+    "type": "integer",
+    "value": 24,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "unresolved_prior_tickets_count",
+    "type": "integer",
+    "value": 2,
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 13.54,
+  "num_ctx": 4096
+ },
+ "tl-distill-13b9e993c5f49a7a": {
+  "fields": [
+   {
+    "name": "candidata_nome",
+    "type": "text",
+    "value": "Mariana Coutinho Ferraz",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "outra_bolsa_vigente",
+    "type": "text",
+    "value": "Bolsa de Iniciação à Pesquisa (PIBIC/CNPq)",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "outra_bolsa_fim_vigencia",
+    "type": "date",
+    "value": "2025-06-30",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "renda_pai_autonomo",
+    "type": "number",
+    "value": 1980.0,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "renda_mae_liquida",
+    "type": "number",
+    "value": 1450.0,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "pensao_alimenticia_recebida",
+    "type": "number",
+    "value": 500.0,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "composicao_familiar_pessoas",
+    "type": "integer",
+    "value": 4,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "data_publicacao_resultado_preliminar",
+    "type": "date",
+    "value": "2025-03-20",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 3.863,
+  "num_ctx": 4096
+ },
+ "tl-distill-0a4f00c2d715e770": {
+  "fields": [
+   {
+    "name": "ticket_number",
+    "type": "text",
+    "value": "#44821",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "client_name",
+    "type": "text",
+    "value": "Marlene Duarte",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "streamingplay_amount",
+    "type": "number",
+    "value": 39.9,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "chargeback_registration_date",
+    "type": "date",
+    "value": "2024-08-14",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "client_confirmation_date",
+    "type": "date",
+    "value": "2024-08-13",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.004,
+  "num_ctx": 4096
+ },
+ "tl-distill-e3d8eb2b03cea7da": {
+  "fields": [
+   {
+    "name": "solicitante_nome",
+    "type": "text",
+    "value": "Ana Pereira",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "solicitante_cpf",
+    "type": "text",
+    "value": "123.456.789-00",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "data_solicitacao",
+    "type": "date",
+    "value": "2025-05-02",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "prazo_resposta_dias",
+    "type": "integer",
+    "value": 15,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "data_resposta",
+    "type": "date",
+    "value": "2025-05-20",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "ticket_id",
+    "type": "text",
+    "value": "4821",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "status_contrato",
+    "type": "text",
+    "value": "ativo",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "base_legal_retencao",
+    "type": "text",
+    "value": "art. 12 da Lei 8.212/91",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 3.016,
+  "num_ctx": 4096
+ },
+ "tl-distill-1ea76e4d70b4b8c6": {
+  "fields": [
+   {
+    "name": "policy_name",
+    "type": "text",
+    "value": "Data Exfiltration Protocol v2.1",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "ticket_id",
+    "type": "text",
+    "value": "SEC-4492",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "ticket_date",
+    "type": "date",
+    "value": "2023-10-27",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "user_email",
+    "type": "text",
+    "value": "j.smith@corp.com",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "transfer_size_gb",
+    "type": "number",
+    "value": 52,
+    "check": "not_in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "destination_domain",
+    "type": "text",
+    "value": "ftp.partner-vendor.com",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "contract_lapse_date",
+    "type": "date",
+    "value": "2023-10-25",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "manager_name",
+    "type": "text",
+    "value": "L. Doe",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.512,
+  "num_ctx": 4096
+ },
+ "tl-distill-c5b118426959090a": {
+  "fields": [
+   {
+    "name": "ticket_number",
+    "type": "text",
+    "value": "#8942",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "invoice_amount",
+    "type": "number",
+    "value": 12000,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "transaction_date",
+    "type": "date",
+    "value": "2020-03-15",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "invoice_id",
+    "type": "text",
+    "value": "Invoice_INV_20200315",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "invoice_status",
+    "type": "text",
+    "value": "Retained",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "compliance_officer",
+    "type": "text",
+    "value": "Jane Smith",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "retention_period_years",
+    "type": "integer",
+    "value": 7,
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.201,
+  "num_ctx": 4096
+ },
+ "tl-distill-48becdd9e486a0b2": {
+  "fields": [
+   {
+    "name": "lote_id",
+    "type": "text",
+    "value": "2458-B",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "lote_peso_toneladas",
+    "type": "number",
+    "value": 12,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "data_producao",
+    "type": "date",
+    "value": "2025-03-10",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "motivo_bloqueio",
+    "type": "text",
+    "value": "notificação de fornecedor (item 2c)",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "fornecedor_nome",
+    "type": "text",
+    "value": "Siderúrgica Norte",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "gerente_qualidade_nome",
+    "type": "text",
+    "value": "Carlos Menezes",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "gerente_producao_nome",
+    "type": "text",
+    "value": "Ana Lúcia Prado",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "data_liberacao_aprovacao",
+    "type": "date",
+    "value": "2025-03-16",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 3.299,
+  "num_ctx": 4096
+ },
+ "tl-distill-2ee44d40d186c789": {
+  "fields": [
+   {
+    "name": "claim_case_id",
+    "type": "text",
+    "value": "9921-A",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "insured_name",
+    "type": "text",
+    "value": "Arthur Pendelton",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "date_of_loss",
+    "type": "date",
+    "value": "2024-03-14",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "mold_remediation_quote",
+    "type": "number",
+    "value": 4200,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "plumber_invoice_total",
+    "type": "number",
+    "value": 350,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "sb_105_active",
+    "type": "boolean",
+    "value": false,
+    "check": "inferred",
+    "status": "unverified"
+   },
+   {
+    "name": "claim_status",
+    "type": "text",
+    "value": "Under Review",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.602,
+  "num_ctx": 4096
+ },
+ "tl-distill-e07812bc511fd06b": {
+  "fields": [
+   {
+    "name": "original_commitment_amount",
+    "type": "text",
+    "value": "312,000 SEK",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "additional_parts_amount",
+    "type": "text",
+    "value": "118,000 SEK",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "vendor_name",
+    "type": "text",
+    "value": "Verkstad AB",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "ceo_approver",
+    "type": "text",
+    "value": "Marcus Feld",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "cfo_name",
+    "type": "text",
+    "value": "Dana Whitfield",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "ticket_number",
+    "type": "text",
+    "value": "PR-2025-0311",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "emergency_justification_deadline_rule",
+    "type": "text",
+    "value": "two business days",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.899,
+  "num_ctx": 4096
+ },
+ "tl-distill-eaafa127c79e4091": {
+  "fields": [
+   {
+    "name": "lot_number",
+    "type": "text",
+    "value": "NP-4471",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "hold_log_id",
+    "type": "text",
+    "value": "H-2024-061",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "quantity",
+    "type": "integer",
+    "value": 4800,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "disposition_type",
+    "type": "text",
+    "value": "Rework R-221",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "release_date",
+    "type": "date",
+    "value": "2024-06-04",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "first_article_sign_off_date",
+    "type": "date",
+    "value": "2024-06-05",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "customer_name",
+    "type": "text",
+    "value": "Acme Aerospace",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "ticket_id",
+    "type": "text",
+    "value": "Q-1188",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 3.119,
+  "num_ctx": 4096
+ },
+ "tl-distill-66866bddcd5ef6e0": {
+  "fields": [
+   {
+    "name": "audit_date",
+    "type": "date",
+    "value": "2023-10-14",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "sarah_opt_in_date",
+    "type": "date",
+    "value": "2023-08-01",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "michael_unsubscribe_date",
+    "type": "date",
+    "value": "2023-09-06",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "michael_erroneous_email_date",
+    "type": "date",
+    "value": null,
+    "check": "not_stated",
+    "status": "unverified"
+   },
+   {
+    "name": "elena_purchase_date",
+    "type": "date",
+    "value": "2023-07-20",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "michael_removal_date",
+    "type": "date",
+    "value": "2023-10-10",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "blast_inclusion_date",
+    "type": "date",
+    "value": null,
+    "check": "not_stated",
+    "status": "unverified"
+   },
+   {
+    "name": "user_count",
+    "type": "integer",
+    "value": 3,
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.975,
+  "num_ctx": 4096
+ },
+ "tl-distill-ffddc069c67ef8eb": {
+  "fields": [
+   {
+    "name": "patient_name",
+    "type": "text",
+    "value": "Maria Delgado",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "existing_appointment_date",
+    "type": "date",
+    "value": "2025-01-14",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "requested_urgent_slot_date",
+    "type": "date",
+    "value": "2025-01-06",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "provider_name",
+    "type": "text",
+    "value": "Dr. Chen",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "double_booking_approved",
+    "type": "boolean",
+    "value": true,
+    "check": "inferred",
+    "status": "unverified"
+   },
+   {
+    "name": "ticket_number",
+    "type": "text",
+    "value": "4821",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.024,
+  "num_ctx": 4096
+ },
+ "tl-distill-9a8562f0419e8249": {
+  "fields": [
+   {
+    "name": "fornecedor",
+    "type": "text",
+    "value": "Alpha Tech Soluções Ltda.",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "po_number",
+    "type": "text",
+    "value": "#78945",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "po_total_value",
+    "type": "number",
+    "value": 50000,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "nfe_number",
+    "type": "integer",
+    "value": 1045,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "nfe_issue_date",
+    "type": "date",
+    "value": "2023-10-15",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "nfe_total_value",
+    "type": "number",
+    "value": 52500,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "po_reference_in_nfe",
+    "type": "text",
+    "value": null,
+    "check": "not_stated",
+    "status": "unverified"
+   },
+   {
+    "name": "po_status",
+    "type": "text",
+    "value": "Aberto",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.563,
+  "num_ctx": 4096
+ },
+ "tl-distill-f6a4289e3e07a11d": {
+  "fields": [
+   {
+    "name": "applicant_name",
+    "type": "text",
+    "value": "Maya Chen",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "applicant_id",
+    "type": "text",
+    "value": "88421",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "award_amount",
+    "type": "number",
+    "value": 5000,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "deadline_date",
+    "type": "date",
+    "value": "2025-03-15",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "spring_2025_credits",
+    "type": "integer",
+    "value": 13,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "cumulative_gpa",
+    "type": "number",
+    "value": 3.72,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "honor_code_status",
+    "type": "text",
+    "value": "written warning",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "ticket_id",
+    "type": "text",
+    "value": "SCH-2025-0312",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.542,
+  "num_ctx": 4096
+ },
+ "tl-distill-79883bd3a075c6df": {
+  "fields": [
+   {
+    "name": "shipment_id",
+    "type": "text",
+    "value": "#9021-B",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "unit_count",
+    "type": "integer",
+    "value": 500,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "arrival_date",
+    "type": "date",
+    "value": "2023-10-20",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "previous_hs_code",
+    "type": "text",
+    "value": "8537.10",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "proposed_hs_heading",
+    "type": "text",
+    "value": "8517",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "cbp_ruling_code",
+    "type": "text",
+    "value": "N284561",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "invoice_amount",
+    "type": "number",
+    "value": 45000,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "deadline_day",
+    "type": "text",
+    "value": "Friday",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.414,
+  "num_ctx": 4096
+ },
+ "tl-distill-087b24a563d7086b": {
+  "fields": [
+   {
+    "name": "ticket_type",
+    "type": "text",
+    "value": "Camarote VIP",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "event_start_date",
+    "type": "date",
+    "value": "2024-06-20",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "purchase_date",
+    "type": "date",
+    "value": "2024-02-10",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "request_date",
+    "type": "date",
+    "value": "2024-06-16",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "promo_code",
+    "type": "text",
+    "value": "EARLYBIRD10",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "ticket_count",
+    "type": "integer",
+    "value": 2,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "administrative_fee",
+    "type": "number",
+    "value": 45.0,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "ticket_status",
+    "type": "text",
+    "value": "transfer not processed",
+    "check": "not_in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.816,
+  "num_ctx": 4096
+ },
+ "tl-distill-80f744d647fb26cc": {
+  "fields": [
+   {
+    "name": "paciente_nome",
+    "type": "text",
+    "value": "João da Silva",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "medicamento_nome",
+    "type": "text",
+    "value": "Losartana 50 mg",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "receita_emissao_data",
+    "type": "date",
+    "value": "2024-03-15",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "receita_vencimento_data",
+    "type": "date",
+    "value": "2024-04-14",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "ultima_dispensacao_data",
+    "type": "date",
+    "value": "2024-04-20",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "classificacao_risco",
+    "type": "text",
+    "value": "Nível 2",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "autorizacao_substituicao",
+    "type": "boolean",
+    "value": true,
+    "check": "inferred",
+    "status": "unverified"
+   },
+   {
+    "name": "status_estoque",
+    "type": "text",
+    "value": "zerado",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 3.15,
+  "num_ctx": 4096
+ },
+ "tl-distill-579f8a0b64e0f878": {
+  "fields": [
+   {
+    "name": "guest_name",
+    "type": "text",
+    "value": "Sr. João Silva",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "original_tariff_type",
+    "type": "text",
+    "value": "Semi-Flexível",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "original_reservation_total",
+    "type": "number",
+    "value": 600.0,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "check_in_date",
+    "type": "date",
+    "value": "2024-05-15",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "initial_request_date",
+    "type": "date",
+    "value": "2024-05-12",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "new_reservation_total",
+    "type": "number",
+    "value": 1200.0,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "initial_ticket_severity",
+    "type": "text",
+    "value": "P2",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.567,
+  "num_ctx": 4096
+ },
+ "tl-distill-15cbdb2b778d6ead": {
+  "fields": [
+   {
+    "name": "t_90881_amount",
+    "type": "number",
+    "value": 312.44,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "t_90881_dispute_type",
+    "type": "text",
+    "value": "unauthorized",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "t_90902_enrolled_in_program",
+    "type": "boolean",
+    "value": true,
+    "check": "inferred",
+    "status": "unverified"
+   },
+   {
+    "name": "t_91010_amount",
+    "type": "number",
+    "value": 2730.0,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "t_91010_dispute_type",
+    "type": "text",
+    "value": "goods/services not received",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "ticket_status",
+    "type": "text",
+    "value": "OPEN",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.449,
+  "num_ctx": 4096
+ },
+ "tl-distill-7dbc228642fc5cbc": {
+  "fields": [
+   {
+    "name": "bolsa_valor_mensal",
+    "type": "number",
+    "value": 650.0,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "renda_familiar_bruta",
+    "type": "number",
+    "value": 5320.0,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "residentes_domicilio",
+    "type": "integer",
+    "value": 4,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "coeficiente_rendimento",
+    "type": "number",
+    "value": 7.4,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "frequencia_semestre",
+    "type": "number",
+    "value": 81.0,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "documento_ausente",
+    "type": "text",
+    "value": "comprovante de residência",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "status_solicitacao",
+    "type": "text",
+    "value": "Solicitação em análise",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.444,
+  "num_ctx": 4096
+ },
+ "tl-distill-57fa782d955e731c": {
+  "fields": [
+   {
+    "name": "reservation_id",
+    "type": "text",
+    "value": "OV-9921",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "reservation_date",
+    "type": "date",
+    "value": "2023-10-14",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "party_size",
+    "type": "integer",
+    "value": 8,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "estimated_total_bill",
+    "type": "number",
+    "value": 640.0,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "cancellation_timestamp",
+    "type": "text",
+    "value": "2023-10-13T21:45:00",
+    "check": "not_in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "processed_charge_amount",
+    "type": "number",
+    "value": 320.0,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "dispute_status",
+    "type": "text",
+    "value": "Customer disputes the $320 charge",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.635,
+  "num_ctx": 4096
+ },
+ "tl-distill-b673fa577fd71eb3": {
+  "fields": [
+   {
+    "name": "ticket_id",
+    "type": "text",
+    "value": "CM-4471",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "submission_date",
+    "type": "date",
+    "value": "2024-06-03",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "reviewer_name",
+    "type": "text",
+    "value": "D. Okafor",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "post_date",
+    "type": "date",
+    "value": "2024-05-28",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "transfer_amount",
+    "type": "number",
+    "value": 40000,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "transfer_date",
+    "type": "date",
+    "value": "2024-04-12",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "republication_date",
+    "type": "date",
+    "value": "2024-05-30",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "subject_role",
+    "type": "text",
+    "value": "Deputy Tax Commissioner",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.755,
+  "num_ctx": 4096
+ },
+ "tl-distill-0aaeade237f97a61": {
+  "fields": [
+   {
+    "name": "ticket_id",
+    "type": "text",
+    "value": "#8901",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "request_date",
+    "type": "date",
+    "value": "2023-10-12",
+    "check": "not_in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "requester_name",
+    "type": "text",
+    "value": "Alex Chen",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "data_classification",
+    "type": "text",
+    "value": "Restricted",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "approver_name",
+    "type": "text",
+    "value": "Sarah Jenkins",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "approver_role",
+    "type": "text",
+    "value": "Dev Manager",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "requested_duration",
+    "type": "text",
+    "value": "4 hours",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "audit_action_status",
+    "type": "text",
+    "value": "Success",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.096,
+  "num_ctx": 4096
+ },
+ "tl-distill-56b436c87c1c33be": {
+  "fields": [
+   {
+    "name": "fornecedor",
+    "type": "text",
+    "value": "GLOBAL TECH SUPPLIES",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "nfe_number",
+    "type": "text",
+    "value": "98765",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "total_geral_nfe",
+    "type": "number",
+    "value": 7000.0,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "limite_aprovacao_automatica",
+    "type": "number",
+    "value": 5000.0,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "status_ticket",
+    "type": "text",
+    "value": "Pendente de Análise",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "data_decisao_gerencial",
+    "type": "date",
+    "value": "2024-05-14",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "gerente_responsavel",
+    "type": "text",
+    "value": "Ana Souza",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.887,
+  "num_ctx": 4096
+ },
+ "tl-distill-f41688f19c78f764": {
+  "fields": [
+   {
+    "name": "case_id",
+    "type": "text",
+    "value": "NEP-2024-8891",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "customer_name",
+    "type": "text",
+    "value": "Arthur Pendelton",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "billed_kwh",
+    "type": "integer",
+    "value": 11200,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "customer_claimed_kwh",
+    "type": "integer",
+    "value": 10500,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "jan_2024_payment_status",
+    "type": "text",
+    "value": "Late (1 day past grace)",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "march_2024_payment_status",
+    "type": "text",
+    "value": "Compliant (Final day of grace)",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "agent_march_2024_marking",
+    "type": "text",
+    "value": "NON-COMPLIANT",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "current_case_status",
+    "type": "text",
+    "value": "Pending Supervisor Review",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 3.533,
+  "num_ctx": 4096
+ },
+ "tl-distill-4a00fb5146d45b52": {
+  "fields": [
+   {
+    "name": "policy_version",
+    "type": "text",
+    "value": "4.2",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "policy_effective_date",
+    "type": "date",
+    "value": "2024-02-01",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "account_holder",
+    "type": "text",
+    "value": "Marina Duarte",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "account_closure_date",
+    "type": "date",
+    "value": "2025-03-05",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "tax_payment_amount",
+    "type": "number",
+    "value": 7420.0,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "log_consultation_date",
+    "type": "date",
+    "value": "2025-06-12",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "account_data_retention_period",
+    "type": "text",
+    "value": "90 dias corridos",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "tax_data_retention_period",
+    "type": "text",
+    "value": "5 anos",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.765,
+  "num_ctx": 4096
+ },
+ "tl-distill-ff11712bf74dbfbc": {
+  "fields": [
+   {
+    "name": "ticket_id",
+    "type": "text",
+    "value": "TCK-4821",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "request_date",
+    "type": "date",
+    "value": "2025-03-11",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "requester_name",
+    "type": "text",
+    "value": "Marina Duarte",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "requester_role",
+    "type": "text",
+    "value": "analista de dados",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "access_type",
+    "type": "text",
+    "value": "ESCRITA",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "resource_contains_restricted_data",
+    "type": "boolean",
+    "value": true,
+    "check": "inferred",
+    "status": "unverified"
+   },
+   {
+    "name": "account_owner",
+    "type": "text",
+    "value": "Rafael Nogueira",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "security_officer",
+    "type": "text",
+    "value": "Camila Pires",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.444,
+  "num_ctx": 4096
+ },
+ "tl-distill-d1c0535aa26c1d19": {
+  "fields": [
+   {
+    "name": "employee_id",
+    "type": "text",
+    "value": "EMP-8921",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "incident_date",
+    "type": "date",
+    "value": "2023-10-14",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "data_exfiltration_size_mb",
+    "type": "integer",
+    "value": 150,
+    "check": "not_in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "dlp_threshold_mb",
+    "type": "integer",
+    "value": 50,
+    "check": "not_in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "policy_code",
+    "type": "text",
+    "value": "SEC-POL-004",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "it_ticket_number",
+    "type": "text",
+    "value": "4421",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "laptop_mac_address",
+    "type": "text",
+    "value": "A4:B5:C6:D7:E8:F9",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.596,
+  "num_ctx": 4096
+ },
+ "tl-distill-05d482d272608b9b": {
+  "fields": [
+   {
+    "name": "application_id",
+    "type": "text",
+    "value": "APP-9024",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "applicant_name",
+    "type": "text",
+    "value": "Sarah Jenkins",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "applicant_fico_score",
+    "type": "integer",
+    "value": 715,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "applicant_gross_annual_income",
+    "type": "number",
+    "value": 82000,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "co_signer_name",
+    "type": "text",
+    "value": "Mark Jenkins",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "co_signer_fico_score",
+    "type": "integer",
+    "value": 760,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "co_signer_gross_annual_income",
+    "type": "number",
+    "value": 110000,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "date_submitted",
+    "type": "date",
+    "value": "2024-09-29",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.674,
+  "num_ctx": 4096
+ },
+ "tl-distill-445d6f4802fcb482": {
+  "fields": [
+   {
+    "name": "property_owner",
+    "type": "text",
+    "value": "Marisol Vega",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "deck_height_above_grade",
+    "type": "integer",
+    "value": 27,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "application_submission_date",
+    "type": "date",
+    "value": "2025-03-03",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "fee_paid_amount",
+    "type": "number",
+    "value": 260,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "ticket_status",
+    "type": "text",
+    "value": "Pending deficiency",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "missing_items",
+    "type": "text",
+    "value": "site plan missing side-line distances; missing soils report or engineer statement",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "corrected_site_plan_received_date",
+    "type": "date",
+    "value": "2025-03-06",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.845,
+  "num_ctx": 4096
+ },
+ "tl-distill-30f394fd642d065b": {
+  "fields": [
+   {
+    "name": "policy_version",
+    "type": "text",
+    "value": "v4.2",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "policy_effective_date",
+    "type": "date",
+    "value": "2024-01-15",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "post_date",
+    "type": "date",
+    "value": "2024-06-10",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "user_handle",
+    "type": "text",
+    "value": "@MikeDoe",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "reported_section",
+    "type": "text",
+    "value": "Section 3.1",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "subject_status",
+    "type": "text",
+    "value": "public figure",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 1.962,
+  "num_ctx": 4096
+ },
+ "tl-distill-ae50519a521c6021": {
+  "fields": [
+   {
+    "name": "campanha_nome",
+    "type": "text",
+    "value": "Semana do Bem-Estar",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "total_contatos",
+    "type": "integer",
+    "value": 18400,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "data_pedido_descadastro_marina",
+    "type": "date",
+    "value": "2024-03-11",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "data_envio_email_marina",
+    "type": "date",
+    "value": "2024-03-12",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "prazo_processamento_descadastro",
+    "type": "text",
+    "value": "até 2 dias úteis",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "base_legal_declarada",
+    "type": "text",
+    "value": "consentimento",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "multa_interna_valor",
+    "type": "number",
+    "value": null,
+    "check": "not_stated",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 3.033,
+  "num_ctx": 4096
+ },
+ "tl-distill-90ce82c3c42dc663": {
+  "fields": [
+   {
+    "name": "customer_name",
+    "type": "text",
+    "value": "Sarah Jenkins",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "current_monthly_base_fee",
+    "type": "number",
+    "value": 120.0,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "new_plan_fee",
+    "type": "number",
+    "value": 80.0,
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "crm_churn_risk_flag",
+    "type": "boolean",
+    "value": true,
+    "check": "inferred",
+    "status": "unverified"
+   },
+   {
+    "name": "outage_ticket_id",
+    "type": "text",
+    "value": "INC-45992-B",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "outage_status",
+    "type": "text",
+    "value": "Resolved",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "outage_root_cause",
+    "type": "text",
+    "value": "Network Infrastructure (Fiber cut due to municipal construction)",
+    "check": "in_text",
+    "status": "unverified"
+   },
+   {
+    "name": "outage_duration",
+    "type": "text",
+    "value": "5 hours 25 minutes",
+    "check": "in_text",
+    "status": "unverified"
+   }
+  ],
+  "seconds": 2.919,
+  "num_ctx": 4096
+ }
+}

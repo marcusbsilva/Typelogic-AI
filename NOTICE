@@ -1,0 +1,43 @@
+TypeLogic AI
+Copyright 2026 TypeLogic AI contributors
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This product includes software adapted from the following projects. Their original notices and licenses are kept
+in licenses/ and in the headers of the adapted files. Local changes are described in those headers.
+
+- kev, Copyright 2026 Jared Palmer, Apache License 2.0.
+  https://github.com/jaredpalmer/kev (commit fe64b1274ea7f80d4095866df90666abb03e9cf6)
+  Pointer decision model and prefix cache: typelogic/vendor/pointer.py. License: licenses/pointer-Apache-2.0.txt
+
+- Open-Jev, Kye Gomez, Apache License 2.0.
+  https://github.com/kyegomez/open-jev (commit 93843ef288f3d35fd91263377c40b6f917d77da0)
+  Structured encoding and research objective: typelogic/vendor/structured.py. License: licenses/structured-Apache-2.0.txt
+
+- Needle, Cactus Compute, Apache License 2.0.
+  https://github.com/cactus-compute/needle (commit b4fc11b04f1852888d375c8c6dfbaca44572d014)
+  ctypes signatures of the native engine: typelogic/needle.py. License: licenses/needle-Apache-2.0.txt
+  The Needle 3 weights and native engine (Cactus-Compute/needle3, Apache License 2.0) are downloaded by
+  tools/fetch_models.py and are not distributed in this repository. The cactus-needle Python package is not used.
+
+- SemIf (formerly OpenJev), Copyright (c) 2026 TheoLeeCJ, MIT License.
+  https://github.com/TheoLeeCJ/SemIf
+  Direct option-letter readout and typed-question mapping: typelogic/direct.py. License: licenses/semif-MIT.txt
+
+This repository also contains third-party data:
+
+- JevBench public items, Copyright (c) 2026 Florian Standhartinger and contributors, MIT License.
+  research/data/jevbench-public (license in that folder). JevBench is not affiliated with TypeSafe.
+- BANKING77, PolyAI, CC BY 4.0, https://github.com/PolyAI-LDN/task-specific-datasets
+- CLINC150, Larson et al., CC BY 3.0, https://github.com/clinc/oos-eval
+  Both in research/data/raw (licenses in that folder) and in derived files under research/. Samples were
+  deduplicated and converted into typed intent records. The software license does not replace these licenses.
+- typelogic-distill-v1 and typelogic-distill-v1-test2 were generated and labeled with third-party models through
+  OpenRouter (see their dataset cards). Check each provider's terms before redistributing the texts.
+
+Model weights are not distributed in this repository. tools/fetch_models.py downloads them from their original
+publishers: Qwen/Qwen3.5-2B and Qwen/Qwen3.5-4B (Alibaba Qwen, Apache License 2.0) and, through Ollama,
+crh225/plumb-4b (Apache License 2.0). The TypeLogic specialist adapter is published as a release asset under the
+Apache License 2.0.
+
+Jev and TypeSafe are names of their respective owners. LAYA (https://github.com/NandhaKishorM/laya) is cited as a
+design reference and benchmark; no code from it is included. No endorsement by any project above is implied.

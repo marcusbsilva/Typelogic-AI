@@ -1,0 +1,16 @@
+{
+  "teacher_weight": 0.3,
+  "reviewer": "Assistant editorial review, 2026-10-13",
+  "decisions": [
+    {"id":"banking77:train:1557","action":"blend","reason":"An account for children reasonably maps to age eligibility within the banking catalog."},
+    {"id":"banking77:train:1000","action":"blend","reason":"Asks which currencies can hold an account balance."},
+    {"id":"banking77:train:1118","action":"blend","reason":"Explicit automatic account top-up."},
+    {"id":"banking77:train:1","action":"blend","reason":"Card overdue for delivery; distinct from asking normal delivery time."},
+    {"id":"banking77:train:10000","action":"blend","reason":"Supported countries are explicitly requested; interpretation assumes the banking task domain."},
+    {"id":"banking77:train:1245","action":"blend","reason":"Explicit non-working card without an alternative specific cause."},
+    {"id":"banking77:train:153","action":"gold_only","reason":"Putting a recovered card into the app supports card linking. Retain source gold; do not mix the conflicting teacher distribution."},
+    {"id":"banking77:train:1357","action":"gold_only","reason":"Currency conversion is requested. The app channel is unstated and the teacher is divided with currency support; retain source gold without importing that confusion."},
+    {"id":"banking77:train:1475","action":"quarantine","reason":"Activity query does not state loss, theft, pending payment or an unrecognized payment. Exclude from self-contained training without relabeling the original benchmark."},
+    {"id":"banking77:train:1006","action":"quarantine","reason":"The object of delivery is unstated. A specific delivery date also differs from a general delivery estimate. Exclude from self-contained training rather than invent card context."}
+  ]
+}

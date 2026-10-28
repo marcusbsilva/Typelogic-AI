@@ -1,0 +1,53 @@
+{
+  "format": "typelogic-template-v1",
+  "id": "expense-reimbursement",
+  "title": "Expenses · missing receipt",
+  "description": "Approve or deny a reimbursement; in automatic mode a confident answer approves or denies it.",
+  "case": "An employee requests reimbursement for a taxi trip. Company policy requires a receipt. No receipt was attached.",
+  "tags": [
+    "finance",
+    "hr"
+  ],
+  "evidence_schema": [
+    {
+      "name": "expense",
+      "type": "text",
+      "description": "What is being reimbursed"
+    },
+    {
+      "name": "receipt_required",
+      "type": "boolean",
+      "description": "Company policy requires a receipt"
+    },
+    {
+      "name": "receipt_attached",
+      "type": "boolean",
+      "description": "A receipt was attached"
+    }
+  ],
+  "evidence": {
+    "expense": "taxi trip",
+    "receipt_required": true,
+    "receipt_attached": false
+  },
+  "decisions": [
+    {
+      "output": "choice",
+      "instructions": "What should the reviewer do next?",
+      "criteria": {
+        "0": "Request the missing receipt",
+        "1": "Approve reimbursement without a receipt",
+        "2": "Send the case to technical support",
+        "3": "Not enough information to choose"
+      },
+      "abstain_option": "3"
+    },
+    {
+      "output": "boolean",
+      "instructions": "Was the required receipt attached?"
+    }
+  ],
+  "threshold": 0.85,
+  "permutation_check": true,
+  "example": true
+}

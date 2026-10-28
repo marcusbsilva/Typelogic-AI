@@ -1,0 +1,47 @@
+{
+  "format": "typelogic-template-v1",
+  "id": "contract-signature",
+  "title": "Documents · unsigned contract",
+  "description": "Decide whether a contract can proceed.",
+  "case": "A contract is ready for review, but the customer signature field is empty. A signed contract is required before proceeding.",
+  "tags": [
+    "legal",
+    "compliance"
+  ],
+  "evidence_schema": [
+    {
+      "name": "signature_required",
+      "type": "boolean",
+      "description": "A signed contract is required before proceeding"
+    },
+    {
+      "name": "customer_signed",
+      "type": "boolean",
+      "description": "The customer signature field is filled"
+    }
+  ],
+  "evidence": {
+    "signature_required": true,
+    "customer_signed": false
+  },
+  "decisions": [
+    {
+      "output": "choice",
+      "instructions": "What should happen next?",
+      "criteria": {
+        "0": "Request the missing customer signature",
+        "1": "Proceed as if the contract were signed",
+        "2": "Open a software fault ticket",
+        "3": "Not enough information to choose"
+      },
+      "abstain_option": "3"
+    },
+    {
+      "output": "boolean",
+      "instructions": "Has the customer signed the contract?"
+    }
+  ],
+  "threshold": 0.85,
+  "permutation_check": true,
+  "example": true
+}

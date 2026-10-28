@@ -1,0 +1,59 @@
+{
+  "format": "typelogic-template-v1",
+  "id": "inventory-stock",
+  "title": "Inventory · empty stock",
+  "description": "Decide the next step for a stock request.",
+  "case": "Warehouse records and a physical count both show zero units of item P-10. A customer needs one unit. Company policy requires a replenishment request when confirmed stock is zero.",
+  "tags": [
+    "inventory",
+    "logistics"
+  ],
+  "evidence_schema": [
+    {
+      "name": "item_code",
+      "type": "text",
+      "description": "Item code"
+    },
+    {
+      "name": "recorded_units",
+      "type": "integer",
+      "description": "Units in the warehouse records"
+    },
+    {
+      "name": "counted_units",
+      "type": "integer",
+      "description": "Units found in the physical count"
+    },
+    {
+      "name": "units_needed",
+      "type": "integer",
+      "description": "Units the customer needs"
+    }
+  ],
+  "evidence": {
+    "item_code": "P-10",
+    "recorded_units": 0,
+    "counted_units": 0,
+    "units_needed": 1
+  },
+  "decisions": [
+    {
+      "output": "choice",
+      "instructions": "What is the appropriate next step?",
+      "criteria": {
+        "0": "Request stock replenishment",
+        "1": "Confirm that the item is available now",
+        "2": "Close the request as a software incident",
+        "3": "Not enough information to choose"
+      },
+      "abstain_option": "3"
+    },
+    {
+      "output": "boolean",
+      "instructions": "Is one unit available in stock?"
+    }
+  ],
+  "threshold": 0.85,
+  "permutation_check": true,
+  "example": true
+}

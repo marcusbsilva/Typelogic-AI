@@ -1,0 +1,9 @@
+numpy==2.5.3
+torch==2.8.0+cpu
+onnx==1.23.1
+onnxruntime==1.30.0
+transformers==5.18.0
+peft==0.21.2
+safetensors==0.8.0
+huggingface-hub==1.33.0
+pytest==9.1.1

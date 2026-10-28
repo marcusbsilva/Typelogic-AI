@@ -1,0 +1,23 @@
+{
+  "title": "Review · missing details",
+  "state": "The only message is: Please help me. No issue, order, payment or technical problem is described.",
+  "questions": {
+    "question_1": {
+      "type": "choice",
+      "instructions": "Which team should receive this case?",
+      "criteria": {
+        "A": "Billing — payment problems",
+        "B": "IT support — application faults",
+        "C": "Sales — purchase requests",
+        "X": "Not enough information to choose"
+      },
+      "abstain_option": "X"
+    },
+    "question_2": {
+      "type": "noul",
+      "instructions": "Does the message describe a specific problem?"
+    }
+  },
+  "threshold": 0.85,
+  "permutation_check": true
+}

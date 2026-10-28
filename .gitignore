@@ -1,0 +1,61 @@
+# --- Model weights and downloaded model files (see README: "Models to download") ---
+models/*/backbone/*
+!models/*/backbone/asset-provenance.json
+models/*/adapter/
+models/qwen35-4b/*
+!models/qwen35-4b/direct-calibration-*.json
+models/needle/*
+!models/needle/manifest.json
+*.safetensors
+*.gguf
+*.cact
+*.pt
+*.onnx
+examples/specialist-demo/
+
+# --- Local Python environments and portable runtime ---
+.venv/
+venv/
+runtime/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Compiled native code (build with: TypeLogic.bat build-native) ---
+rust/target/
+typelogic/_core*.pyd
+typelogic/_core*.so
+sdk/lua/typelogic_core.so
+sdk/lua/typelogic_core.dll
+sdk/typescript/native/
+node_modules/
+
+# --- Large research data (published as release assets; rebuildable) ---
+research/data/intent-choice-en-v2/
+research/data/jev-banking77-catalog-v2-audited/
+research/data/typelogic-mix-v1-s1024/*.jsonl
+research/data/feedback-*.jsonl
+research/runs/*/adapter/
+research/runs/*/*.tlc
+research/results/training/*/*-logits.*
+research/distill/work/
+research/needle-ab/work/
+
+# --- Local data, secrets and scratch ---
+.typelogic-ai/
+*.sqlite3
+*.key
+.env
+_claude/
+verification-*.json
+*.log
+.DS_Store
+Thumbs.db
+
+# --- Packages built from this repository ---
+*.zip
+
+# --- Decision archives made when the library reaches its limit (typelogic/archive.py) ---
+/data/

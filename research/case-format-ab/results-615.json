@@ -1,0 +1,247 @@
+{
+  "source": "typelogic-distill-v1-test2",
+  "documents": 213,
+  "questions": 615,
+  "extractors": {
+    "qwen3.5:4b": {
+      "fields": 1555,
+      "oracle_values": 1537,
+      "correct": 1421,
+      "wrong": 103,
+      "wrong_flagged": 15,
+      "omitted": 13,
+      "invented": 18,
+      "seconds": 438.29799999999983,
+      "errors": 0,
+      "seconds_per_document": 2.06
+    }
+  },
+  "best_extractor": "qwen3.5:4b",
+  "needle_reference": {
+    "fields": 244,
+    "filled": 136,
+    "equal_to_oracle": 32,
+    "seconds": 532.7
+  },
+  "timing_seconds": {
+    "generalist": 1011.5,
+    "specialist": 223.0
+  },
+  "errors": [
+    {
+      "engine": "specialist",
+      "variant": "text",
+      "doc": "tl-distill-5ced68aa36d9ecb4",
+      "qid": "*",
+      "error": "state exceeds 2048 tokens: 2064"
+    },
+    {
+      "engine": "specialist",
+      "variant": "case",
+      "doc": "tl-distill-5ced68aa36d9ecb4",
+      "qid": "*",
+      "error": "state exceeds 2048 tokens: 2105"
+    },
+    {
+      "engine": "specialist",
+      "variant": "case_oracle",
+      "doc": "tl-distill-5ced68aa36d9ecb4",
+      "qid": "*",
+      "error": "state exceeds 2048 tokens: 2235"
+    },
+    {
+      "engine": "specialist",
+      "variant": "case_extracted",
+      "doc": "tl-distill-5ced68aa36d9ecb4",
+      "qid": "*",
+      "error": "state exceeds 2048 tokens: 2231"
+    },
+    {
+      "engine": "specialist",
+      "variant": "case",
+      "doc": "tl-distill-d8e0f18931db5943",
+      "qid": "*",
+      "error": "state exceeds 2048 tokens: 2051"
+    },
+    {
+      "engine": "specialist",
+      "variant": "case_oracle",
+      "doc": "tl-distill-d8e0f18931db5943",
+      "qid": "*",
+      "error": "state exceeds 2048 tokens: 2137"
+    },
+    {
+      "engine": "specialist",
+      "variant": "case_extracted",
+      "doc": "tl-distill-d8e0f18931db5943",
+      "qid": "*",
+      "error": "state exceeds 2048 tokens: 2137"
+    },
+    {
+      "engine": "specialist",
+      "variant": "case_oracle",
+      "doc": "tl-distill-7743949ec618fa8e",
+      "qid": "*",
+      "error": "state exceeds 2048 tokens: 2130"
+    },
+    {
+      "engine": "specialist",
+      "variant": "case_extracted",
+      "doc": "tl-distill-7743949ec618fa8e",
+      "qid": "*",
+      "error": "state exceeds 2048 tokens: 2129"
+    },
+    {
+      "engine": "specialist",
+      "variant": "case_oracle",
+      "doc": "tl-distill-ae9150f563ad567c",
+      "qid": "*",
+      "error": "state exceeds 2048 tokens: 2131"
+    },
+    {
+      "engine": "specialist",
+      "variant": "case_extracted",
+      "doc": "tl-distill-ae9150f563ad567c",
+      "qid": "*",
+      "error": "state exceeds 2048 tokens: 2131"
+    }
+  ],
+  "results": {
+    "generalist": {
+      "text": {
+        "questions": 615,
+        "accuracy": 0.8764,
+        "nll": 0.4525,
+        "mean_top_probability": 0.9089
+      },
+      "case": {
+        "questions": 615,
+        "accuracy": 0.8715,
+        "nll": 0.4562,
+        "mean_top_probability": 0.9105,
+        "vs_text": {
+          "answers_fixed": 5,
+          "answers_broken": 8,
+          "accuracy_diff": -0.0049,
+          "accuracy_diff_ci95": [
+            -0.0163,
+            0.0065
+          ],
+          "nll_diff": 0.0037,
+          "nll_diff_ci95": [
+            -0.0091,
+            0.0164
+          ]
+        }
+      },
+      "case_oracle": {
+        "questions": 615,
+        "accuracy": 0.8715,
+        "nll": 0.4555,
+        "mean_top_probability": 0.92,
+        "vs_text": {
+          "answers_fixed": 13,
+          "answers_broken": 16,
+          "accuracy_diff": -0.0049,
+          "accuracy_diff_ci95": [
+            -0.0211,
+            0.0114
+          ],
+          "nll_diff": 0.003,
+          "nll_diff_ci95": [
+            -0.0233,
+            0.0297
+          ]
+        }
+      },
+      "case_extracted": {
+        "questions": 615,
+        "accuracy": 0.878,
+        "nll": 0.4522,
+        "mean_top_probability": 0.9187,
+        "vs_text": {
+          "answers_fixed": 12,
+          "answers_broken": 11,
+          "accuracy_diff": 0.0016,
+          "accuracy_diff_ci95": [
+            -0.0146,
+            0.0163
+          ],
+          "nll_diff": -0.0002,
+          "nll_diff_ci95": [
+            -0.0267,
+            0.0253
+          ]
+        }
+      }
+    },
+    "specialist": {
+      "text": {
+        "questions": 612,
+        "accuracy": 0.7958,
+        "nll": 0.5523,
+        "mean_top_probability": 0.7477
+      },
+      "case": {
+        "questions": 608,
+        "accuracy": 0.7796,
+        "nll": 0.5578,
+        "mean_top_probability": 0.758,
+        "vs_text": {
+          "answers_fixed": 14,
+          "answers_broken": 24,
+          "accuracy_diff": -0.0164,
+          "accuracy_diff_ci95": [
+            -0.0362,
+            0.0033
+          ],
+          "nll_diff": 0.0055,
+          "nll_diff_ci95": [
+            -0.0069,
+            0.018
+          ]
+        }
+      },
+      "case_oracle": {
+        "questions": 602,
+        "accuracy": 0.7807,
+        "nll": 0.5554,
+        "mean_top_probability": 0.7605,
+        "vs_text": {
+          "answers_fixed": 16,
+          "answers_broken": 24,
+          "accuracy_diff": -0.0133,
+          "accuracy_diff_ci95": [
+            -0.0349,
+            0.0066
+          ],
+          "nll_diff": 0.0006,
+          "nll_diff_ci95": [
+            -0.0136,
+            0.014
+          ]
+        }
+      },
+      "case_extracted": {
+        "questions": 602,
+        "accuracy": 0.7807,
+        "nll": 0.5553,
+        "mean_top_probability": 0.7602,
+        "vs_text": {
+          "answers_fixed": 16,
+          "answers_broken": 24,
+          "accuracy_diff": -0.0133,
+          "accuracy_diff_ci95": [
+            -0.0316,
+            0.0083
+          ],
+          "nll_diff": 0.0005,
+          "nll_diff_ci95": [
+            -0.0135,
+            0.0142
+          ]
+        }
+      }
+    }
+  }
+}

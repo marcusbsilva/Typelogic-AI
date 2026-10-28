@@ -1,0 +1,392 @@
+{
+  "teacher_weight": 0.3,
+  "reviewer": "Assistant editorial review, 2026-10-13; not independent human gold annotations",
+  "pilot_identity_sha256": "b0aac0b29382efb1bbcecfa11cb347ccbe15e7dd7bf030d94fa1c7c47562e0bd",
+  "decisions": [
+    {
+      "id": "banking77:train:1",
+      "action": "blend",
+      "reason": "Cartão ainda não entregue após duas semanas; consulta atraso de chegada."
+    },
+    {
+      "id": "banking77:train:1000",
+      "action": "blend",
+      "reason": "Pergunta quais moedas podem manter saldo na conta, distinta de compatibilidade de cartões para recarga."
+    },
+    {
+      "id": "banking77:train:10000",
+      "action": "blend",
+      "reason": "Solicita países suportados dentro do domínio bancário declarado pela tarefa."
+    },
+    {
+      "id": "banking77:train:1006",
+      "action": "quarantine",
+      "reason": "O objeto da entrega não é identificado; data específica também não equivale necessariamente a estimativa de entrega de cartão."
+    },
+    {
+      "id": "banking77:train:1118",
+      "action": "blend",
+      "reason": "Solicita recarga automática da conta."
+    },
+    {
+      "id": "banking77:train:1245",
+      "action": "blend",
+      "reason": "Afirma que o cartão não funciona, sem especificar causa diferente."
+    },
+    {
+      "id": "banking77:train:1357",
+      "action": "gold_only",
+      "reason": "Conversão AUD/GBP é plausível; canal aplicativo não está indicado. Preservar gold sem ensinar a confusão com moedas suportadas."
+    },
+    {
+      "id": "banking77:train:1475",
+      "action": "quarantine",
+      "reason": "Consulta atividade do cartão sem afirmar perda ou roubo. Não inventar esse contexto nem substituir pelo palpite do professor."
+    },
+    {
+      "id": "banking77:train:153",
+      "action": "gold_only",
+      "reason": "Recolocar cartão encontrado no aplicativo torna card_linking plausível; professor se divide entre perda e ativação."
+    },
+    {
+      "id": "banking77:train:1557",
+      "action": "blend",
+      "reason": "Conta para crianças corresponde a elegibilidade por idade no catálogo bancário; idade exata não é inferida."
+    },
+    {
+      "id": "banking77:train:1667",
+      "action": "blend",
+      "reason": "Excesso de tentativas de PIN indica bloqueio de PIN."
+    },
+    {
+      "id": "banking77:train:1782",
+      "action": "quarantine",
+      "reason": "Pergunta sobre desinstalar o aplicativo sem mencionar pagamento por aproximação ou falha contactless."
+    },
+    {
+      "id": "banking77:train:1817",
+      "action": "gold_only",
+      "reason": "Tarifa de recarga via transferência é plausível, mas top-up fee não explicita a modalidade bancária e se sobrepõe a transfer_fee_charged."
+    },
+    {
+      "id": "banking77:train:1928",
+      "action": "gold_only",
+      "reason": "Tempo para concluir recarga torna pending_top_up plausível, mas não afirma que uma recarga concreta está pendente."
+    },
+    {
+      "id": "banking77:train:2078",
+      "action": "blend",
+      "reason": "Cancelamento de transferência explicitamente solicitado."
+    },
+    {
+      "id": "banking77:train:2234",
+      "action": "blend",
+      "reason": "Pergunta o limite máximo de recargas."
+    },
+    {
+      "id": "banking77:train:2331",
+      "action": "blend",
+      "reason": "Saque entregou apenas parte do valor solicitado."
+    },
+    {
+      "id": "banking77:train:2511",
+      "action": "blend",
+      "reason": "Tarifa em pagamento por cartão explicitamente mencionada."
+    },
+    {
+      "id": "banking77:train:2698",
+      "action": "quarantine",
+      "reason": "Pergunta demora da transferência sem informar que o destinatário não recebeu o valor."
+    },
+    {
+      "id": "banking77:train:2869",
+      "action": "gold_only",
+      "reason": "American Express é uma referência explícita à compatibilidade de cartão na recarga; catálogo precisa distinguir compatibilidade de procedimento e tarifas."
+    },
+    {
+      "id": "banking77:train:292",
+      "action": "blend",
+      "reason": "Valor relativo do dinheiro em outras moedas aponta taxa de câmbio."
+    },
+    {
+      "id": "banking77:train:3000",
+      "action": "blend",
+      "reason": "Solicita como obter um cartão virtual."
+    },
+    {
+      "id": "banking77:train:3096",
+      "action": "blend",
+      "reason": "Pergunta onde o cartão não é aceito."
+    },
+    {
+      "id": "banking77:train:3156",
+      "action": "gold_only",
+      "reason": "Recarga cancelada torna reversão plausível, mas status cancelado/revertido/falhado exige definição mais clara."
+    },
+    {
+      "id": "banking77:train:3301",
+      "action": "blend",
+      "reason": "Depósito por cheque demora para aparecer/concluir."
+    },
+    {
+      "id": "banking77:train:3482",
+      "action": "blend",
+      "reason": "Pagamento com cartão que não foi realizado pelo titular."
+    },
+    {
+      "id": "banking77:train:3651",
+      "action": "blend",
+      "reason": "Solicita alteração do endereço pessoal."
+    },
+    {
+      "id": "banking77:train:3771",
+      "action": "blend",
+      "reason": "Pergunta a razão da verificação de identidade."
+    },
+    {
+      "id": "banking77:train:3892",
+      "action": "quarantine",
+      "reason": "Pede ajuda para provar identidade, sem afirmar que a verificação falhou ou é impossível."
+    },
+    {
+      "id": "banking77:train:3994",
+      "action": "gold_only",
+      "reason": "Gold histórico aponta consulta do PIN. Descrição get physical card é enganosa; corrigir catálogo antes de coletar alvo suave."
+    },
+    {
+      "id": "banking77:train:404",
+      "action": "gold_only",
+      "reason": "Pagamento com custo de câmbio elevado torna card_payment_wrong_exchange_rate plausível, mas professor confunde erro de taxa com tarifa de conversão."
+    },
+    {
+      "id": "banking77:train:4101",
+      "action": "blend",
+      "reason": "Pergunta Visa versus Mastercard; descrição deverá distinguir bandeira de cartão aceito para recarga."
+    },
+    {
+      "id": "banking77:train:4235",
+      "action": "quarantine",
+      "reason": "Relata dinheiro indisponível e impossibilidade de comprar combustível, sem indicar recarga por cartão."
+    },
+    {
+      "id": "banking77:train:4339",
+      "action": "gold_only",
+      "reason": "Limite de usos de cartão virtual pode corresponder à classe; o texto não identifica um cartão descartável. Revisar fronteira com cartão virtual reutilizável."
+    },
+    {
+      "id": "banking77:train:4459",
+      "action": "blend",
+      "reason": "Relata suspeita de uso do cartão por terceiros sem autorização."
+    },
+    {
+      "id": "banking77:train:4545",
+      "action": "blend",
+      "reason": "Pergunta em quais ATMs pode utilizar o cartão."
+    },
+    {
+      "id": "banking77:train:4632",
+      "action": "quarantine",
+      "reason": "Contesta pagamento no extrato sem identificar débito automático; a distinção específica não está no texto."
+    },
+    {
+      "id": "banking77:train:4814",
+      "action": "blend",
+      "reason": "Senha de acesso desconhecida no domínio bancário."
+    },
+    {
+      "id": "banking77:train:4919",
+      "action": "blend",
+      "reason": "Saque em dinheiro explicitamente recusado."
+    },
+    {
+      "id": "banking77:train:5092",
+      "action": "blend",
+      "reason": "Pergunta significado de pagamento pendente no catálogo bancário."
+    },
+    {
+      "id": "banking77:train:5251",
+      "action": "blend",
+      "reason": "Telefone roubado explicitamente informado."
+    },
+    {
+      "id": "banking77:train:5372",
+      "action": "blend",
+      "reason": "Pergunta processo/prazo geral de reembolso, sem afirmar um reembolso já solicitado que não chegou."
+    },
+    {
+      "id": "banking77:train:5542",
+      "action": "blend",
+      "reason": "Pedido de transferência explicitamente recusado."
+    },
+    {
+      "id": "banking77:train:5674",
+      "action": "blend",
+      "reason": "Reembolso solicitado anteriormente ainda não apareceu na conta."
+    },
+    {
+      "id": "banking77:train:571",
+      "action": "blend",
+      "reason": "Tarifa extra no extrato sem causa específica conhecida; corresponde ao ramo geral."
+    },
+    {
+      "id": "banking77:train:5836",
+      "action": "quarantine",
+      "reason": "Cartão não funcionou, mas não há evidência explícita de uma compra recusada."
+    },
+    {
+      "id": "banking77:train:5989",
+      "action": "quarantine",
+      "reason": "Dinheiro colocado para férias não aparece; não identifica uma transferência bancária pendente."
+    },
+    {
+      "id": "banking77:train:6137",
+      "action": "blend",
+      "reason": "Solicita desativar/encerrar a conta."
+    },
+    {
+      "id": "banking77:train:6245",
+      "action": "blend",
+      "reason": "ATM reteve o cartão."
+    },
+    {
+      "id": "banking77:train:6306",
+      "action": "gold_only",
+      "reason": "Transação duplicada no extrato é plausível, mas duplicate times pode ser interpretado como horário; preservar referência até revisão das descrições."
+    },
+    {
+      "id": "banking77:train:6481",
+      "action": "quarantine",
+      "reason": "Pergunta de onde vem dinheiro, sem situar comprovação documental da origem de fundos. Contexto insuficiente para a classe específica."
+    },
+    {
+      "id": "banking77:train:6594",
+      "action": "blend",
+      "reason": "Pergunta prazo de chegada de transferência na conta."
+    },
+    {
+      "id": "banking77:train:6722",
+      "action": "gold_only",
+      "reason": "Pagamento de compra devolvido corresponde à reversão; repetição de falhas também aproxima recusa. Não misturar distribuição ambígua."
+    },
+    {
+      "id": "banking77:train:6884",
+      "action": "blend",
+      "reason": "Solicita passos para alterar o PIN."
+    },
+    {
+      "id": "banking77:train:7005",
+      "action": "quarantine",
+      "reason": "Transferências bloqueadas sem mencionar beneficiário não permitido."
+    },
+    {
+      "id": "banking77:train:7161",
+      "action": "blend",
+      "reason": "Tarifa inesperada ao transferir dinheiro para outra pessoa."
+    },
+    {
+      "id": "banking77:train:7333",
+      "action": "blend",
+      "reason": "Pergunta possibilidade de receber salário na conta."
+    },
+    {
+      "id": "banking77:train:737",
+      "action": "blend",
+      "reason": "Saque em dinheiro aparece como pendente."
+    },
+    {
+      "id": "banking77:train:7428",
+      "action": "blend",
+      "reason": "Tentativas repetidas de transferência não concluídas, sem recusa específica identificada."
+    },
+    {
+      "id": "banking77:train:7565",
+      "action": "gold_only",
+      "reason": "Como transferir para a conta é plausível; direção/origem da transferência é pouco explícita."
+    },
+    {
+      "id": "banking77:train:7678",
+      "action": "blend",
+      "reason": "Pergunta como verificar recarga por cartão."
+    },
+    {
+      "id": "banking77:train:7804",
+      "action": "gold_only",
+      "reason": "Custo de cartões adicionais é compatível com spare card; descrição curta não cobre tarifas/solicitação de extras adequadamente."
+    },
+    {
+      "id": "banking77:train:7933",
+      "action": "blend",
+      "reason": "Solicita recarga em dinheiro."
+    },
+    {
+      "id": "banking77:train:8047",
+      "action": "gold_only",
+      "reason": "Custo do cartão físico suporta order_physical_card; professor é desviado pelo nome get_physical_card, cuja classe real trata de PIN."
+    },
+    {
+      "id": "banking77:train:8167",
+      "action": "blend",
+      "reason": "Cartão virtual descartável não funciona; falha está explícita."
+    },
+    {
+      "id": "banking77:train:8210",
+      "action": "quarantine",
+      "reason": "Reclama tarifa de saque no ATM; não menciona câmbio ou taxa de conversão."
+    },
+    {
+      "id": "banking77:train:8371",
+      "action": "gold_only",
+      "reason": "Uso de cartões descartáveis é compatível com orientação sobre essa classe, mas não pede explicitamente obtenção de um cartão."
+    },
+    {
+      "id": "banking77:train:8468",
+      "action": "blend",
+      "reason": "Falha da recarga está explícita."
+    },
+    {
+      "id": "banking77:train:8613",
+      "action": "quarantine",
+      "reason": "Dinheiro não aparece sem identificar transferência bancária como origem."
+    },
+    {
+      "id": "banking77:train:8784",
+      "action": "blend",
+      "reason": "Aplicativo mostra saque em dinheiro negado pelo titular."
+    },
+    {
+      "id": "banking77:train:8946",
+      "action": "gold_only",
+      "reason": "Desconto por câmbio frequente aponta cobrança de câmbio; preservar gold sem importar confusão com exchange_rate."
+    },
+    {
+      "id": "banking77:train:9065",
+      "action": "blend",
+      "reason": "Pergunta cobrança para recarga por cartão; formulação pouco natural, mas modalidade de recarga está indicada."
+    },
+    {
+      "id": "banking77:train:9180",
+      "action": "blend",
+      "reason": "Tentativa de ativação do cartão não funcionou; intenção de ativação explícita."
+    },
+    {
+      "id": "banking77:train:9338",
+      "action": "blend",
+      "reason": "Pergunta cobrança por retirar dinheiro."
+    },
+    {
+      "id": "banking77:train:9515",
+      "action": "quarantine",
+      "reason": "Pede entrega rápida de cartão novo, sem informar vencimento ou proximidade do vencimento."
+    },
+    {
+      "id": "banking77:train:9645",
+      "action": "blend",
+      "reason": "Pergunta recarga via Google Pay."
+    },
+    {
+      "id": "banking77:train:9770",
+      "action": "blend",
+      "reason": "Pergunta requisitos para verificação de identidade."
+    }
+  ]
+}

@@ -1,0 +1,545 @@
+{
+  "engine": "needle3",
+  "optional_fields": {
+    "required_fields": false,
+    "stated_fields": 26,
+    "absent_fields": 5,
+    "correct": 15,
+    "wrong": 1,
+    "omitted": 10,
+    "wrong_marked_not_in_text": 1,
+    "absent_left_out": 4,
+    "invented": 1,
+    "invented_marked_not_in_text": 0,
+    "rows": [
+      {
+        "case": "request-integrity",
+        "field": "trusted_amount",
+        "expected": 49.9,
+        "value": null,
+        "check": "not_stated",
+        "result": "omitted"
+      },
+      {
+        "case": "request-integrity",
+        "field": "received_amount",
+        "expected": 0.01,
+        "value": 0.01,
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "request-integrity",
+        "field": "received_action",
+        "expected": "refund",
+        "value": "refund",
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "request-integrity",
+        "field": "added_role",
+        "expected": "admin",
+        "value": "admin",
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "purchasing",
+        "field": "first_item_price",
+        "expected": 40,
+        "value": 40.0,
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "purchasing",
+        "field": "second_item_price",
+        "expected": 60,
+        "value": 60.0,
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "purchasing",
+        "field": "stated_total",
+        "expected": 100,
+        "value": null,
+        "check": "not_stated",
+        "result": "omitted"
+      },
+      {
+        "case": "purchasing",
+        "field": "currency",
+        "expected": null,
+        "value": null,
+        "check": "not_stated",
+        "result": "absent_left_out"
+      },
+      {
+        "case": "purchasing",
+        "field": "due_date",
+        "expected": null,
+        "value": null,
+        "check": "not_stated",
+        "result": "absent_left_out"
+      },
+      {
+        "case": "rpg-combat",
+        "field": "monster_hp",
+        "expected": 60,
+        "value": null,
+        "check": "not_stated",
+        "result": "omitted"
+      },
+      {
+        "case": "rpg-combat",
+        "field": "monster_max_hp",
+        "expected": 80,
+        "value": null,
+        "check": "not_stated",
+        "result": "omitted"
+      },
+      {
+        "case": "rpg-combat",
+        "field": "monster_mana",
+        "expected": 0,
+        "value": null,
+        "check": "not_stated",
+        "result": "omitted"
+      },
+      {
+        "case": "rpg-combat",
+        "field": "enemy_distance_m",
+        "expected": 1,
+        "value": null,
+        "check": "not_stated",
+        "result": "omitted"
+      },
+      {
+        "case": "rpg-combat",
+        "field": "claw_reach_m",
+        "expected": 2,
+        "value": null,
+        "check": "not_stated",
+        "result": "omitted"
+      },
+      {
+        "case": "rpg-combat",
+        "field": "heal_mana_cost",
+        "expected": 20,
+        "value": null,
+        "check": "not_stated",
+        "result": "omitted"
+      },
+      {
+        "case": "inventory",
+        "field": "item_code",
+        "expected": "P-10",
+        "value": "P-10",
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "inventory",
+        "field": "units_in_stock",
+        "expected": 0,
+        "value": 0,
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "inventory",
+        "field": "units_needed",
+        "expected": 1,
+        "value": 1,
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "inventory",
+        "field": "warehouse",
+        "expected": null,
+        "value": "Warehouse",
+        "check": "in_text",
+        "result": "invented"
+      },
+      {
+        "case": "expenses",
+        "field": "expense",
+        "expected": "taxi trip",
+        "value": "taxi trip",
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "expenses",
+        "field": "receipt_attached",
+        "expected": false,
+        "value": false,
+        "check": "inferred",
+        "result": "correct"
+      },
+      {
+        "case": "expenses",
+        "field": "amount",
+        "expected": null,
+        "value": null,
+        "check": "not_stated",
+        "result": "absent_left_out"
+      },
+      {
+        "case": "expenses",
+        "field": "trip_date",
+        "expected": null,
+        "value": null,
+        "check": "not_stated",
+        "result": "absent_left_out"
+      },
+      {
+        "case": "invoice",
+        "field": "vendor",
+        "expected": "Acme Corp",
+        "value": "Acme Corp",
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "invoice",
+        "field": "invoice_number",
+        "expected": "INV-2231",
+        "value": "INV-2231",
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "invoice",
+        "field": "amount",
+        "expected": 4800,
+        "value": null,
+        "check": "not_stated",
+        "result": "omitted"
+      },
+      {
+        "case": "invoice",
+        "field": "currency",
+        "expected": "EUR",
+        "value": "EUR",
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "invoice",
+        "field": "due_date",
+        "expected": "2026-11-15",
+        "value": "2026-11-15",
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "refund-pt",
+        "field": "amount",
+        "expected": 89.9,
+        "value": null,
+        "check": "not_stated",
+        "result": "omitted"
+      },
+      {
+        "case": "refund-pt",
+        "field": "payment_date",
+        "expected": "2026-10-03",
+        "value": "2026-12-03",
+        "check": "not_in_text",
+        "result": "wrong"
+      },
+      {
+        "case": "refund-pt",
+        "field": "requested_action",
+        "expected": "reembolso",
+        "value": "reembolso",
+        "check": "in_text",
+        "result": "correct"
+      }
+    ]
+  },
+  "required_fields": {
+    "required_fields": true,
+    "stated_fields": 26,
+    "absent_fields": 5,
+    "correct": 18,
+    "wrong": 2,
+    "omitted": 6,
+    "wrong_marked_not_in_text": 2,
+    "absent_left_out": 0,
+    "invented": 5,
+    "invented_marked_not_in_text": 4,
+    "rows": [
+      {
+        "case": "request-integrity",
+        "field": "trusted_amount",
+        "expected": 49.9,
+        "value": 49.9,
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "request-integrity",
+        "field": "received_amount",
+        "expected": 0.01,
+        "value": 0.01,
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "request-integrity",
+        "field": "received_action",
+        "expected": "refund",
+        "value": "refund",
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "request-integrity",
+        "field": "added_role",
+        "expected": "admin",
+        "value": "admin",
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "purchasing",
+        "field": "first_item_price",
+        "expected": 40,
+        "value": 40.0,
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "purchasing",
+        "field": "second_item_price",
+        "expected": 60,
+        "value": 6.0,
+        "check": "not_in_text",
+        "result": "wrong"
+      },
+      {
+        "case": "purchasing",
+        "field": "stated_total",
+        "expected": 100,
+        "value": 100.0,
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "purchasing",
+        "field": "currency",
+        "expected": null,
+        "value": "USD",
+        "check": "not_in_text",
+        "result": "invented"
+      },
+      {
+        "case": "purchasing",
+        "field": "due_date",
+        "expected": null,
+        "value": "2026-10-25",
+        "check": "not_in_text",
+        "result": "invented"
+      },
+      {
+        "case": "rpg-combat",
+        "field": "monster_hp",
+        "expected": 60,
+        "value": null,
+        "check": "not_stated",
+        "result": "omitted"
+      },
+      {
+        "case": "rpg-combat",
+        "field": "monster_max_hp",
+        "expected": 80,
+        "value": null,
+        "check": "not_stated",
+        "result": "omitted"
+      },
+      {
+        "case": "rpg-combat",
+        "field": "monster_mana",
+        "expected": 0,
+        "value": null,
+        "check": "not_stated",
+        "result": "omitted"
+      },
+      {
+        "case": "rpg-combat",
+        "field": "enemy_distance_m",
+        "expected": 1,
+        "value": null,
+        "check": "not_stated",
+        "result": "omitted"
+      },
+      {
+        "case": "rpg-combat",
+        "field": "claw_reach_m",
+        "expected": 2,
+        "value": null,
+        "check": "not_stated",
+        "result": "omitted"
+      },
+      {
+        "case": "rpg-combat",
+        "field": "heal_mana_cost",
+        "expected": 20,
+        "value": null,
+        "check": "not_stated",
+        "result": "omitted"
+      },
+      {
+        "case": "inventory",
+        "field": "item_code",
+        "expected": "P-10",
+        "value": "P-10",
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "inventory",
+        "field": "units_in_stock",
+        "expected": 0,
+        "value": 0,
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "inventory",
+        "field": "units_needed",
+        "expected": 1,
+        "value": 1,
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "inventory",
+        "field": "warehouse",
+        "expected": null,
+        "value": "Warehouse",
+        "check": "in_text",
+        "result": "invented"
+      },
+      {
+        "case": "expenses",
+        "field": "expense",
+        "expected": "taxi trip",
+        "value": "taxi trip",
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "expenses",
+        "field": "receipt_attached",
+        "expected": false,
+        "value": false,
+        "check": "inferred",
+        "result": "correct"
+      },
+      {
+        "case": "expenses",
+        "field": "amount",
+        "expected": null,
+        "value": 50.0,
+        "check": "not_in_text",
+        "result": "invented"
+      },
+      {
+        "case": "expenses",
+        "field": "trip_date",
+        "expected": null,
+        "value": "2026-10-25",
+        "check": "not_in_text",
+        "result": "invented"
+      },
+      {
+        "case": "invoice",
+        "field": "vendor",
+        "expected": "Acme Corp",
+        "value": "Acme Corp",
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "invoice",
+        "field": "invoice_number",
+        "expected": "INV-2231",
+        "value": "INV-2231",
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "invoice",
+        "field": "amount",
+        "expected": 4800,
+        "value": 4800.0,
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "invoice",
+        "field": "currency",
+        "expected": "EUR",
+        "value": "EUR",
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "invoice",
+        "field": "due_date",
+        "expected": "2026-11-15",
+        "value": "2026-11-15",
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "refund-pt",
+        "field": "amount",
+        "expected": 89.9,
+        "value": 89.9,
+        "check": "in_text",
+        "result": "correct"
+      },
+      {
+        "case": "refund-pt",
+        "field": "payment_date",
+        "expected": "2026-10-03",
+        "value": "2026-12-03",
+        "check": "not_in_text",
+        "result": "wrong"
+      },
+      {
+        "case": "refund-pt",
+        "field": "requested_action",
+        "expected": "reembolso",
+        "value": "reembolso",
+        "check": "in_text",
+        "result": "correct"
+      }
+    ]
+  },
+  "retrieval_banking77": {
+    "queries": 77,
+    "documents": 616,
+    "seconds_per_vector": 0.037,
+    "needle": {
+      "top1": 20,
+      "top5": 40
+    },
+    "hashed": {
+      "top1": 31,
+      "top5": 51
+    },
+    "fused": {
+      "top1": 25,
+      "top5": 53
+    },
+    "characters_read_by_embed": 650
+  }
+}

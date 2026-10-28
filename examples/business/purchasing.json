@@ -1,0 +1,23 @@
+{
+  "title": "Purchasing · supplier quote",
+  "state": "A buyer received a supplier quote: one item costs 40.00 and another costs 60.00. The quote states a total of 100.00. The buyer needs the purchasing team to review it.",
+  "questions": {
+    "question_1": {
+      "type": "choice",
+      "instructions": "Which team should review the quote?",
+      "criteria": {
+        "A": "Purchasing — supplier quotes",
+        "B": "IT support — software errors",
+        "C": "Customer support — delivery complaints",
+        "X": "Not enough information to choose"
+      },
+      "abstain_option": "X"
+    },
+    "question_2": {
+      "type": "noul",
+      "instructions": "Does the quote state a total of 100.00?"
+    }
+  },
+  "threshold": 0.85,
+  "permutation_check": true
+}

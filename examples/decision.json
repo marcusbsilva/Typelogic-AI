@@ -1,0 +1,30 @@
+{
+  "title": "Analisar cobran\u00e7a duplicada",
+  "state": "The customer was charged twice for the same order and requests a refund.",
+  "questions": {
+    "route": {
+      "type": "choice",
+      "instructions": "Which department should handle this request? Choose X when evidence is insufficient.",
+      "criteria": {
+        "A": "Billing: invoices, charges, refunds",
+        "B": "Technical: software bugs, outages",
+        "X": "Insufficient evidence to choose"
+      },
+      "abstain_option": "X"
+    },
+    "refund": {
+      "type": "noul",
+      "instructions": "The customer explicitly requests a refund."
+    },
+    "urgency": {
+      "type": "score",
+      "instructions": "How urgent is this request?",
+      "criteria": [
+        "Low",
+        "Normal",
+        "Urgent"
+      ]
+    }
+  },
+  "permutation_check": true
+}

@@ -1,0 +1,72 @@
+{
+  "format": "typelogic-template-v1",
+  "id": "lead-scoring",
+  "title": "Sales · lead scoring",
+  "description": "Score the buying intent of an inbound sales message; in automatic mode Ready to buy or higher approves.",
+  "case": "Subject: Pricing for 40 seats\n\nHi, we trialed your product last month with two teams and want to standardize on it. Our current contract ends soon. Could you send enterprise pricing for 40 seats and the documents for our security review?",
+  "tags": [
+    "sales",
+    "customer"
+  ],
+  "evidence_schema": [
+    {
+      "name": "trial_completed",
+      "type": "boolean",
+      "description": "The prospect completed a trial"
+    },
+    {
+      "name": "trial_teams",
+      "type": "integer",
+      "description": "Teams that took part in the trial"
+    },
+    {
+      "name": "requested_seats",
+      "type": "integer",
+      "description": "Seats requested"
+    },
+    {
+      "name": "wants_standardization",
+      "type": "boolean",
+      "description": "The prospect wants to standardize on the product"
+    },
+    {
+      "name": "contract_end_mentioned",
+      "type": "boolean",
+      "description": "The end of a current contract is mentioned"
+    },
+    {
+      "name": "security_review_requested",
+      "type": "boolean",
+      "description": "Security review documents are requested"
+    },
+    {
+      "name": "pricing_requested",
+      "type": "boolean",
+      "description": "Pricing is requested"
+    }
+  ],
+  "evidence": {
+    "trial_completed": true,
+    "trial_teams": 2,
+    "requested_seats": 40,
+    "wants_standardization": true,
+    "contract_end_mentioned": true,
+    "security_review_requested": true,
+    "pricing_requested": true
+  },
+  "decisions": [
+    {
+      "output": "score",
+      "instructions": "How strong is the buying intent?",
+      "levels": {
+        "1": "Browsing",
+        "2": "Evaluating",
+        "3": "Ready to buy",
+        "4": "Urgent purchase intent"
+      }
+    }
+  ],
+  "threshold": 0.85,
+  "permutation_check": true,
+  "example": true
+}

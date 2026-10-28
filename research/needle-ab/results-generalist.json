@@ -1,0 +1,467 @@
+{
+  "source": "typelogic-distill-v1-test2",
+  "documents": 33,
+  "questions": 103,
+  "teacher": "google/gemma-4-26b-a4b-it",
+  "needle": {
+    "fields": 244,
+    "filled": 128,
+    "equal_to_oracle": 28,
+    "seconds": 450.0
+  },
+  "oracle_values_written_in_text": 240,
+  "timing_seconds": {
+    "generalist": 241.2,
+    "specialist": 132.1
+  },
+  "errors": 500,
+  "results": {
+    "generalist": {
+      "none": {
+        "questions": 103,
+        "accuracy": 0.9029,
+        "nll": 0.4191,
+        "mean_top_probability": 0.9152
+      },
+      "format": {
+        "questions": 103,
+        "accuracy": 0.9223,
+        "nll": 0.4267,
+        "mean_top_probability": 0.9174,
+        "vs_none": {
+          "answers_fixed": 2,
+          "answers_broken": 0,
+          "accuracy_diff": 0.0194,
+          "accuracy_diff_ci95": [
+            0.0,
+            0.0485
+          ],
+          "nll_diff": 0.0076,
+          "nll_diff_ci95": [
+            -0.0481,
+            0.0624
+          ]
+        }
+      },
+      "needle": {
+        "questions": 103,
+        "accuracy": 0.9029,
+        "nll": 0.4316,
+        "mean_top_probability": 0.9204,
+        "vs_none": {
+          "answers_fixed": 1,
+          "answers_broken": 1,
+          "accuracy_diff": 0.0,
+          "accuracy_diff_ci95": [
+            -0.0291,
+            0.0291
+          ],
+          "nll_diff": 0.0125,
+          "nll_diff_ci95": [
+            -0.0499,
+            0.0739
+          ]
+        }
+      },
+      "oracle": {
+        "questions": 103,
+        "accuracy": 0.9126,
+        "nll": 0.4568,
+        "mean_top_probability": 0.9235,
+        "vs_none": {
+          "answers_fixed": 1,
+          "answers_broken": 0,
+          "accuracy_diff": 0.0097,
+          "accuracy_diff_ci95": [
+            0.0,
+            0.0291
+          ],
+          "nll_diff": 0.0378,
+          "nll_diff_ci95": [
+            -0.0247,
+            0.0978
+          ]
+        }
+      },
+      "corrupt": {
+        "questions": 103,
+        "accuracy": 0.8835,
+        "nll": 0.4672,
+        "mean_top_probability": 0.9167,
+        "vs_none": {
+          "answers_fixed": 1,
+          "answers_broken": 3,
+          "accuracy_diff": -0.0194,
+          "accuracy_diff_ci95": [
+            -0.0583,
+            0.0194
+          ],
+          "nll_diff": 0.0481,
+          "nll_diff_ci95": [
+            -0.0218,
+            0.1231
+          ]
+        }
+      }
+    },
+    "specialist": {
+      "none": {
+        "questions": 3,
+        "accuracy": 0.6667,
+        "nll": 0.655,
+        "mean_top_probability": 0.6894
+      },
+      "format": {
+        "questions": 3,
+        "accuracy": 0.6667,
+        "nll": 0.6157,
+        "mean_top_probability": 0.6557,
+        "vs_none": {
+          "answers_fixed": 0,
+          "answers_broken": 0,
+          "accuracy_diff": 0.0,
+          "accuracy_diff_ci95": [
+            0.0,
+            0.0
+          ],
+          "nll_diff": -0.0393,
+          "nll_diff_ci95": [
+            -0.1681,
+            0.0662
+          ]
+        }
+      },
+      "needle": {
+        "questions": 3,
+        "accuracy": 0.6667,
+        "nll": 0.6985,
+        "mean_top_probability": 0.6353,
+        "vs_none": {
+          "answers_fixed": 0,
+          "answers_broken": 0,
+          "accuracy_diff": 0.0,
+          "accuracy_diff_ci95": [
+            0.0,
+            0.0
+          ],
+          "nll_diff": 0.0435,
+          "nll_diff_ci95": [
+            0.021,
+            0.0568
+          ]
+        }
+      },
+      "oracle": {
+        "questions": 3,
+        "accuracy": 0.6667,
+        "nll": 0.7895,
+        "mean_top_probability": 0.6488,
+        "vs_none": {
+          "answers_fixed": 0,
+          "answers_broken": 0,
+          "accuracy_diff": 0.0,
+          "accuracy_diff_ci95": [
+            0.0,
+            0.0
+          ],
+          "nll_diff": 0.1344,
+          "nll_diff_ci95": [
+            0.064,
+            0.2511
+          ]
+        }
+      },
+      "corrupt": {
+        "questions": 3,
+        "accuracy": 0.6667,
+        "nll": 0.6401,
+        "mean_top_probability": 0.6297,
+        "vs_none": {
+          "answers_fixed": 0,
+          "answers_broken": 0,
+          "accuracy_diff": 0.0,
+          "accuracy_diff_ci95": [
+            0.0,
+            0.0
+          ],
+          "nll_diff": -0.0149,
+          "nll_diff_ci95": [
+            -0.1462,
+            0.0927
+          ]
+        }
+      }
+    }
+  },
+  "by_language": {
+    "generalist": {
+      "en": {
+        "none": {
+          "questions": 61,
+          "accuracy": 0.9016,
+          "nll": 0.392,
+          "mean_top_probability": 0.9206
+        },
+        "format": {
+          "questions": 61,
+          "accuracy": 0.918,
+          "nll": 0.4048,
+          "mean_top_probability": 0.9176,
+          "vs_none": {
+            "answers_fixed": 1,
+            "answers_broken": 0,
+            "accuracy_diff": 0.0164,
+            "accuracy_diff_ci95": [
+              0.0,
+              0.0492
+            ],
+            "nll_diff": 0.0128,
+            "nll_diff_ci95": [
+              -0.0737,
+              0.0947
+            ]
+          }
+        },
+        "needle": {
+          "questions": 61,
+          "accuracy": 0.9016,
+          "nll": 0.4128,
+          "mean_top_probability": 0.925,
+          "vs_none": {
+            "answers_fixed": 1,
+            "answers_broken": 1,
+            "accuracy_diff": 0.0,
+            "accuracy_diff_ci95": [
+              -0.0492,
+              0.0492
+            ],
+            "nll_diff": 0.0209,
+            "nll_diff_ci95": [
+              -0.0811,
+              0.1154
+            ]
+          }
+        },
+        "oracle": {
+          "questions": 61,
+          "accuracy": 0.918,
+          "nll": 0.4288,
+          "mean_top_probability": 0.9187,
+          "vs_none": {
+            "answers_fixed": 1,
+            "answers_broken": 0,
+            "accuracy_diff": 0.0164,
+            "accuracy_diff_ci95": [
+              0.0,
+              0.0492
+            ],
+            "nll_diff": 0.0368,
+            "nll_diff_ci95": [
+              -0.0553,
+              0.1317
+            ]
+          }
+        },
+        "corrupt": {
+          "questions": 61,
+          "accuracy": 0.9016,
+          "nll": 0.423,
+          "mean_top_probability": 0.9081,
+          "vs_none": {
+            "answers_fixed": 1,
+            "answers_broken": 1,
+            "accuracy_diff": 0.0,
+            "accuracy_diff_ci95": [
+              -0.0492,
+              0.0492
+            ],
+            "nll_diff": 0.031,
+            "nll_diff_ci95": [
+              -0.069,
+              0.1274
+            ]
+          }
+        }
+      },
+      "pt": {
+        "none": {
+          "questions": 42,
+          "accuracy": 0.9048,
+          "nll": 0.4585,
+          "mean_top_probability": 0.9074
+        },
+        "format": {
+          "questions": 42,
+          "accuracy": 0.9286,
+          "nll": 0.4585,
+          "mean_top_probability": 0.917,
+          "vs_none": {
+            "answers_fixed": 1,
+            "answers_broken": 0,
+            "accuracy_diff": 0.0238,
+            "accuracy_diff_ci95": [
+              0.0,
+              0.0714
+            ],
+            "nll_diff": 0.0001,
+            "nll_diff_ci95": [
+              -0.0477,
+              0.0345
+            ]
+          }
+        },
+        "needle": {
+          "questions": 42,
+          "accuracy": 0.9048,
+          "nll": 0.4589,
+          "mean_top_probability": 0.9138,
+          "vs_none": {
+            "answers_fixed": 0,
+            "answers_broken": 0,
+            "accuracy_diff": 0.0,
+            "accuracy_diff_ci95": [
+              0.0,
+              0.0
+            ],
+            "nll_diff": 0.0005,
+            "nll_diff_ci95": [
+              -0.0454,
+              0.037
+            ]
+          }
+        },
+        "oracle": {
+          "questions": 42,
+          "accuracy": 0.9048,
+          "nll": 0.4976,
+          "mean_top_probability": 0.9305,
+          "vs_none": {
+            "answers_fixed": 0,
+            "answers_broken": 0,
+            "accuracy_diff": 0.0,
+            "accuracy_diff_ci95": [
+              0.0,
+              0.0
+            ],
+            "nll_diff": 0.0391,
+            "nll_diff_ci95": [
+              -0.0071,
+              0.091
+            ]
+          }
+        },
+        "corrupt": {
+          "questions": 42,
+          "accuracy": 0.8571,
+          "nll": 0.5313,
+          "mean_top_probability": 0.9292,
+          "vs_none": {
+            "answers_fixed": 0,
+            "answers_broken": 2,
+            "accuracy_diff": -0.0476,
+            "accuracy_diff_ci95": [
+              -0.119,
+              0.0
+            ],
+            "nll_diff": 0.0729,
+            "nll_diff_ci95": [
+              -0.0086,
+              0.1927
+            ]
+          }
+        }
+      }
+    },
+    "specialist": {
+      "en": {
+        "none": {
+          "questions": 3,
+          "accuracy": 0.6667,
+          "nll": 0.655,
+          "mean_top_probability": 0.6894
+        },
+        "format": {
+          "questions": 3,
+          "accuracy": 0.6667,
+          "nll": 0.6157,
+          "mean_top_probability": 0.6557,
+          "vs_none": {
+            "answers_fixed": 0,
+            "answers_broken": 0,
+            "accuracy_diff": 0.0,
+            "accuracy_diff_ci95": [
+              0.0,
+              0.0
+            ],
+            "nll_diff": -0.0393,
+            "nll_diff_ci95": [
+              -0.1681,
+              0.0662
+            ]
+          }
+        },
+        "needle": {
+          "questions": 3,
+          "accuracy": 0.6667,
+          "nll": 0.6985,
+          "mean_top_probability": 0.6353,
+          "vs_none": {
+            "answers_fixed": 0,
+            "answers_broken": 0,
+            "accuracy_diff": 0.0,
+            "accuracy_diff_ci95": [
+              0.0,
+              0.0
+            ],
+            "nll_diff": 0.0435,
+            "nll_diff_ci95": [
+              0.021,
+              0.0568
+            ]
+          }
+        },
+        "oracle": {
+          "questions": 3,
+          "accuracy": 0.6667,
+          "nll": 0.7895,
+          "mean_top_probability": 0.6488,
+          "vs_none": {
+            "answers_fixed": 0,
+            "answers_broken": 0,
+            "accuracy_diff": 0.0,
+            "accuracy_diff_ci95": [
+              0.0,
+              0.0
+            ],
+            "nll_diff": 0.1344,
+            "nll_diff_ci95": [
+              0.064,
+              0.2511
+            ]
+          }
+        },
+        "corrupt": {
+          "questions": 3,
+          "accuracy": 0.6667,
+          "nll": 0.6401,
+          "mean_top_probability": 0.6297,
+          "vs_none": {
+            "answers_fixed": 0,
+            "answers_broken": 0,
+            "accuracy_diff": 0.0,
+            "accuracy_diff_ci95": [
+              0.0,
+              0.0
+            ],
+            "nll_diff": -0.0149,
+            "nll_diff_ci95": [
+              -0.1462,
+              0.0927
+            ]
+          }
+        }
+      },
+      "pt": {}
+    }
+  }
+}

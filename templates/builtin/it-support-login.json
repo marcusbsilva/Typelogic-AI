@@ -1,0 +1,53 @@
+{
+  "format": "typelogic-template-v1",
+  "id": "it-support-login",
+  "title": "IT support · login failure",
+  "description": "Route an access problem.",
+  "case": "An employee cannot sign in because the application shows a server error. The employee needs technical assistance. There is no payment problem.",
+  "tags": [
+    "it-support",
+    "support"
+  ],
+  "evidence_schema": [
+    {
+      "name": "sign_in_works",
+      "type": "boolean",
+      "description": "The employee can sign in"
+    },
+    {
+      "name": "error_message",
+      "type": "text",
+      "description": "Error shown by the application"
+    },
+    {
+      "name": "payment_problem",
+      "type": "boolean",
+      "description": "A payment problem is reported"
+    }
+  ],
+  "evidence": {
+    "sign_in_works": false,
+    "error_message": "server error",
+    "payment_problem": false
+  },
+  "decisions": [
+    {
+      "output": "choice",
+      "instructions": "Which team should handle this issue?",
+      "criteria": {
+        "0": "IT support — login and application errors",
+        "1": "Billing — payments",
+        "2": "Sales — product purchases",
+        "3": "Not enough information to choose"
+      },
+      "abstain_option": "3"
+    },
+    {
+      "output": "boolean",
+      "instructions": "Can the employee sign in successfully?"
+    }
+  ],
+  "threshold": 0.85,
+  "permutation_check": true,
+  "example": true
+}
