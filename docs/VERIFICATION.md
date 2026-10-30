@@ -31,6 +31,7 @@ Combine 88.6%, Plumb alone 85.9%. Detailed tables: `docs/SPIKE-RESULTS.md`, `spi
 config/models.lock.json, runtime/llama (llama.cpp b11960 with the patched llama.dll), README, LICENSE,
 NOTICE, licenses. `spike\run-spikes.bat release` then checks it on a clean folder.
 
-Not verified automatically: the interactive first-start questions (they need a person at the console) and the
-download of the specialist GGUF from its release URL before the release exists (`release --online` checks it after
-publishing).
+After publishing, the four release assets were downloaded from their GitHub URLs and match `SHA256SUMS.txt` and
+`config/models.lock.json` (the specialist GGUF: 2,014,112,160 bytes, SHA-256 29bc0931...).
+
+Not verified automatically: the interactive first-start questions (they need a person at the console).

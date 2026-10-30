@@ -1,6 +1,6 @@
 # TypeLogic v2 plan
 
-Status: **phases 0-3 done; phase 4 (release) built and checked, publication pending** (2026-10-30). TypeLogic 1.x stays the
+Status: **TypeLogic 2.0.0 released (2026-10-30); phases 0-4 done.** TypeLogic 1.x stays the
 development toolchain (training, calibration, evaluation).
 
 ## Goal
@@ -187,7 +187,7 @@ its C ABI for short-text extraction.
 
 One archive: `TypeLogic.exe`, `runtime/llama/`, `config/`; models fetched by `setup` from `config/models.lock.json`.
 
-**Status: archive built and checked (2026-10-30); publication pending.** `tools/package.py` writes
+**Status: published (2026-10-30), https://github.com/marcusbsilva/Typelogic-AI/releases/tag/v2.0.0.** `tools/package.py` writes
 `release/TypeLogic-2.0.0-windows-x64.zip` (32 MiB: TypeLogic.exe, the llama.cpp runtime with the patched
 llama.dll, config, licenses) and the release assets (specialist GGUF, llama.dll, SHA256SUMS.txt).
 `spike\run-spikes.bat release`: 10/10 on a clean folder (see docs/VERIFICATION.md).
