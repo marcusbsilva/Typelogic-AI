@@ -26,7 +26,7 @@ export interface Answer {
   score?: number;
   legend?: Record<string, string>;
   order_diagnostic?: OrderDiagnostic;
-  engine?: 'specialist' | 'generalist' | 'ensemble';
+  engine?: 'specialist' | 'generalist' | 'clef' | 'ensemble';
 }
 
 export interface Integrity { verified?: boolean; sha512?: string | null; md5?: string | null; baseline_origin?: string | null; }
@@ -123,6 +123,11 @@ export interface EngineHealth {
   profile?: Record<string, QuestionSpec> | null;
   generalist?: GeneralistHealth | null;
   routing?: { max_generalist_options?: number; mode?: string; ensemble_weight?: number | null; forced?: string | null } | null;
+  /** TypeLogic 2: the llama.cpp runtime, the loaded models and why they were chosen */
+  runtime?: string;
+  engines?: string[];
+  models?: { role: string; file: string }[];
+  plan?: string;
   [key: string]: unknown;
 }
 
@@ -159,10 +164,7 @@ export interface ModeInfo {
   label: string;
   restarting: boolean;
   engine_status?: string;
-  settings: { hybrid_device: 'cpu' | 'gpu'; hybrid_combine: 'route' | 'ensemble'; ollama_model: string };
-  availability: {
-    cpu: ModeOption;
-    gpu: ModeOption & { backend?: string | null; name?: string | null; via_restart?: boolean };
-    hybrid: ModeOption & { gpu_device?: boolean; models?: string[]; ollama_model?: string };
-  };
+  plan?: string;
+  settings?: { combine?: string };
+  availability: Record<string, ModeOption>;
 }

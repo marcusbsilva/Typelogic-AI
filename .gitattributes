@@ -1,12 +1,8 @@
-# Keep exact bytes: these files are hashed by MODEL-PARITY.json and the model manifests.
-models/** -text
-research/runs/** -text
-MODEL-PARITY.json -text
+# Text files are stored with LF; the Windows scripts keep CRLF. Embedded data keeps its exact bytes.
+* text=auto eol=lf
 *.bat text eol=crlf
-*.sh text eol=lf
+*.cmd text eol=crlf
+bench/** -text
+crates/typelogic-app/tests/*.json -text
 *.png binary
-research/training-*.json -text
-research/qwen35-2b-assets.json -text
-*.py text eol=lf
-*.ts text eol=lf
-*.md text eol=lf
+*.gguf binary

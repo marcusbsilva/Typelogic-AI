@@ -1,13 +1,13 @@
 {
   "name": "typelogic-web",
   "private": true,
-  "version": "1.1.0",
-  "description": "TypeScript sources of the TypeLogic AI local interface (compiled to typelogic/web/app.js)",
+  "version": "2.0.0-alpha.0",
+  "description": "TypeScript sources of the TypeLogic AI local interface (compiled to web/static/app.js, embedded in TypeLogic.exe)",
   "license": "Apache-2.0",
   "type": "module",
   "scripts": {
     "check": "tsc -p tsconfig.json",
-    "build": "tsc -p tsconfig.json && esbuild src/app.ts --bundle --format=iife --target=es2020 --charset=utf8 --legal-comments=none --outfile=../typelogic/web/app.js",
+    "build": "tsc -p tsconfig.json && esbuild src/app.ts --bundle --format=iife --target=es2020 --charset=utf8 --legal-comments=none --outfile=static/app.js",
     "test:ui": "node tests/ui.test.mjs"
   },
   "devDependencies": {

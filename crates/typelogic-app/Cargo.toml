@@ -1,0 +1,18 @@
+[package]
+name = "typelogic-app"
+description = "TypeLogic.exe: the single launcher, local web UI/API and supervisor of the llama.cpp inference server"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "TypeLogic"
+path = "src/main.rs"
+
+[dependencies]
+typelogic-core = { path = "../typelogic-core" }
+
+[features]
+# the deterministic engine of the UI tests (TypeLogic serve --fixture); never in a release build
+fixture = []

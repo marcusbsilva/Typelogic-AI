@@ -1,0 +1,19 @@
+[workspace]
+resolver = "2"
+members = ["crates/typelogic-core", "crates/typelogic-app"]
+
+[workspace.package]
+version = "2.0.0"
+edition = "2021"
+license = "Apache-2.0"
+rust-version = "1.83"
+
+# No third-party crates: the whole application is the Rust standard library plus typelogic-core.
+# Inference runs in llama.cpp's llama-server (a separate, pinned, MIT-licensed binary), supervised by TypeLogic.exe.
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+panic = "unwind"
+strip = true

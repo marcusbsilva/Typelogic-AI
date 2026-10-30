@@ -60,7 +60,7 @@ export function resultHTML(id: string, a: Answer, questions: Record<string, Ques
   const numbered = a.type === 'choice' && value !== undefined && /^\d+$/.test(value) && !!choiceCriteria[value];
   const description = numbered ? `<p class="answer-description">Option ${esc(value)}</p>`
     : a.type === 'choice' && value !== undefined && choiceCriteria[value] ? `<p class="answer-description">${esc(choiceCriteria[value])}</p>` : '';
-  const engineLabel = a.engine === 'generalist' ? 'Generalist (local 4B model, direct option-letter readout)' : a.engine === 'specialist' ? 'Specialist (trained 2B adapter + decision head)' : a.engine === 'ensemble' ? 'Ensemble (generalist and specialist, weighted product of probabilities)' : '';
+  const engineLabel = a.engine === 'generalist' ? 'Plumb-4B (generalist, direct option-letter readout)' : a.engine === 'specialist' ? 'Specialist (TypeLogic Qwen3.5-2B, trained decision head)' : a.engine === 'clef' ? 'Clef-Flash (9B decision model)' : a.engine === 'ensemble' ? 'Ensemble (two models, weighted product of probabilities)' : '';
   const engine = engineLabel ? `<p>Engine: ${esc(engineLabel)}</p>` : '';
   const order = a.order_diagnostic?.checked ? `<p>Order: ${a.order_diagnostic.unstable ? 'sensitivity detected' : 'no relevant change in two permutations'} ${helpIcon(helpTexts.order, 'Explain order check')}</p>` : '';
   return `<article class="result-card"><h4 class="result-name">${esc(questionTitle(id, a, questions, index))}</h4><div class="result-value"><span class="answer-label">Answer:</span> ${esc(numbered ? choiceCriteria[value as string] : value)}</div>${description}${a.abstained ? '<span class="status-tag">Not enough information</span>' : ''}${bars}<div class="result-details"><p>Confidence: <strong>${(best * 100).toFixed(1)}% = ${esc(chanceLabel)}</strong> ${helpIcon(chanceHelp, 'Explain confidence')}</p>${a.type === 'score' ? `<p>Calculated score: ${score.toFixed(2)} / ${n - 1} ${helpIcon(scoreHelp, 'Explain score')}</p>` : ''}<p>Concentration: ${(a.concentration * 100).toFixed(1)}% · no accuracy guarantee ${helpIcon(concentrationHelp, 'Explain concentration')}</p>${engine}${order}${warnings.length ? `<p class="flags">${warnings.map(r => esc(reasons[r] || r)).join(' · ')}</p>` : ''}</div></article>`;
@@ -118,34 +118,23 @@ async function deleteCurrent(): Promise<void> {
   } catch (e) { reportError(e); }
 }
 
-function readoutLabel(engine: EngineHealth): string {
-  if (engine.readout === 'rust') return engine.onnx?.runtime ? `Rust readout (${engine.onnx.runtime})` : 'Rust readout · loading';
-  if (engine.readout === 'torch') return 'PyTorch readout';
-  return engine.onnx?.runtime ? `ONNX Runtime ${engine.onnx.runtime}` : 'Loading / unavailable';
-}
+const ROLE_LABELS: Record<string, string> = { generalist: 'Plumb (up to 16 options, titles, evidence)', specialist: 'Specialist (catalogs)', clef: 'Clef-Flash (catalogs)' };
 
 export function renderEngineProfile(engine: EngineHealth): void {
-  const calibration = engine.calibration;
   const core = engine.core;
-  const profileName = engine.model_dir ? engine.model_dir.split(/[\\/]/).filter(Boolean).pop() || engine.model_dir : 'Default';
-  const g = engine.generalist, routing = engine.routing;
+  const models = engine.models || [];
+  const catalog = models.some(m => m.role === 'clef') ? 'Clef-Flash' : models.some(m => m.role === 'specialist') ? 'specialist' : '';
+  const limit = engine.routing?.max_generalist_options ?? 16;
   const facts: [string, string][] = [
-    [g ? 'Specialist backbone' : 'Backbone', engine.base_model || engine.model || 'Not identified'],
-    ['Model profile', profileName],
-    ['Execution', engine.device || 'Local'],
-    ['Scenario limit', Number.isInteger(engine.max_state_tokens) ? `${(engine.max_state_tokens as number).toLocaleString('en-US')} tokens` : 'See technical metadata'],
+    ['Runtime', engine.runtime || 'llama.cpp'],
+    ...models.map(m => [ROLE_LABELS[m.role] || m.role, m.file] as [string, string]),
+    ['Execution', engine.device === 'CPU' || !engine.device ? 'Processor (CPU)' : `GPU ${engine.device}`],
+    ['Why these models', engine.plan || 'Not loaded yet'],
+    ['Routing', models.some(m => m.role === 'generalist') ? `Up to ${limit} options: Plumb${catalog ? ` · more: ${catalog}` : ''}` : catalog ? `Every question: ${catalog}` : 'No model loaded'],
     ['Output contract', 'Choice · Yes/no · Score'],
-    ['Decision runtime', readoutLabel(engine)],
-    ['Deterministic core', core ? (core.backend === 'rust' ? `Rust ${core.core_version || ''}`.trim() : 'Python reference') : 'Python reference'],
-    ['Calibration', typeof calibration === 'string' ? calibration.replaceAll('_', ' ') : calibration?.status || 'Not verified for this domain'],
+    ['Deterministic core', core ? (core.backend === 'rust' ? `Rust ${core.core_version || ''}`.trim() : 'Python reference') : 'Rust'],
+    ['Calibration', 'Specialist and Plumb: local validation, not a general guarantee · Clef-Flash: not validated for your domain'],
     ['Network', 'Local only · no external API'],
   ];
-  if (g) {
-    const generalist = g.backend === 'ollama' ? `${g.ollama_model || 'Ollama model'} · Ollama` : g.backend === 'gguf' ? `${g.gguf || 'GGUF'} · llama.cpp` : `Qwen3.5-4B · PyTorch ${g.device || 'CPU'}`;
-    const limit = routing?.max_generalist_options ?? 16;
-    const route = routing?.mode === 'ensemble' ? `Ensemble up to ${limit} options (weight ${routing.ensemble_weight ?? 0.55}) · specialist above` : `Generalist up to ${limit} options · specialist above`;
-    facts.push(['Generalist', `${generalist} · ${g.status || 'unknown'}`], ['Routing', route],
-      ['Generalist calibration', (g.calibration || 'not validated for your domain').replaceAll('_', ' ') + (g.option_orders === 2 ? ' · two option orders' : '')]);
-  }
   $('engine-profile').innerHTML = facts.map(([label, value]) => `<div class="engine-fact"><span>${esc(label)}</span><strong>${esc(value)}</strong></div>`).join('');
 }

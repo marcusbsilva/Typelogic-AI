@@ -8,12 +8,13 @@ import { exportTraining, installLibrary, refreshHistory, showLibraryList } from 
 import { engineProfile, isEngineReady, refreshStatus, setEvaluating } from './status';
 import { installModes, loadModes } from './modes';
 import { loadNeedle } from './needle';
+import { installEvaluate, loadEvaluate } from './evaluate';
 
 // Navigation, engine status polling and wiring. Entry point of the compiled app.js.
 
 
 const PAGE_TITLES: Record<string, string> = {
-  decide: 'New decision', library: 'Library', settings: 'Engine & privacy', about: 'About TypeLogic AI',
+  decide: 'New decision', library: 'Library', evaluate: 'Evaluate', settings: 'Engine & privacy', about: 'About TypeLogic AI',
 };
 
 function showPage(page: string): void {
@@ -23,6 +24,7 @@ function showPage(page: string): void {
   $('page-title').textContent = PAGE_TITLES[page];
   if (page === 'library') { showLibraryList(); refreshHistory().catch(reportError); }
   if (page === 'settings') { loadModes().catch(reportError); loadNeedle(); }
+  if (page === 'evaluate') loadEvaluate().catch(reportError);
   refreshStatus().catch(reportError);
 }
 
@@ -98,6 +100,7 @@ function installDecide(): void {
 
 function installSettings(): void {
   installModes();
+  installEvaluate();
   $('retry-engine').addEventListener('click', async () => {
     try { await api('/api/load', {}); await refreshStatus(); } catch (e) { reportError(e); }
   });

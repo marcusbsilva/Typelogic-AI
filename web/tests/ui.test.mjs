@@ -1,7 +1,10 @@
-// End-to-end interface test: real server + store + Rust core, fake engine, headless Chromium.
-// Run: node web/tests/ui.test.mjs   (PLAYWRIGHT_MODULE may point to a playwright install)
+// End-to-end interface test: the real TypeLogic.exe server, library and Rust core with the deterministic fixture
+// engine (first alternative 0.9), in headless Chromium.
+// Run: cargo build --features fixture && node web/tests/ui.test.mjs
+// (TYPELOGIC_EXE may point to the binary, PLAYWRIGHT_MODULE to a playwright install)
 import { spawn, spawnSync } from 'node:child_process';
-import { mkdtempSync, rmSync } from 'node:fs';
+import { mkdtempSync, rmSync, mkdirSync, readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -11,10 +14,21 @@ import assert from 'node:assert/strict';
 const require = createRequire(import.meta.url);
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const here = dirname(fileURLToPath(import.meta.url));
-const python = process.env.TYPELOGIC_PYTHON || 'python3';
-const data = mkdtempSync(join(tmpdir(), 'typelogic-ui-'));
-const LIMIT = 36;   // library limit of the fixture, so the archive dialog can be tested quickly
-const server = spawn(python, ['-I', join(here, 'fixture_server.py'), '--data', data, '--limit', String(LIMIT)], { stdio: ['ignore', 'pipe', 'inherit'] });
+const exe = process.env.TYPELOGIC_EXE || join(here, '../../target/debug/TypeLogic' + (process.platform === 'win32' ? '.exe' : ''));
+const home = mkdtempSync(join(tmpdir(), 'typelogic-ui-'));
+const data = join(home, 'data');
+mkdirSync(data);
+const LIMIT = 36;   // library limit of the test, so the archive dialog can be tested quickly
+const server = spawn(exe, ['serve', '--fixture', '--no-browser', '--port', '0', '--data', data],
+  { stdio: ['ignore', 'pipe', 'inherit'], env: { ...process.env, TYPELOGIC_HOME: home, TYPELOGIC_LIBRARY_LIMIT: String(LIMIT), TYPELOGIC_RAR: join(home, 'no-rar') } });
+/** core.export_filename: eight Base32 characters of SHA-256("<id>:<format>"). */
+function exportFilename(id, format) {
+  const bytes = createHash('sha256').update(`${id}:${format}`, 'utf8').digest().subarray(0, 5);
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz234567';
+  let bits = 0, value = 0, out = '';
+  for (const b of bytes) { value = (value << 8) | b; bits += 8; while (bits >= 5) { out += alphabet[(value >>> (bits - 5)) & 31]; bits -= 5; } }
+  return out + '.json';
+}
 const url = await new Promise((resolve, reject) => {
   server.stdout.once('data', chunk => resolve(String(chunk).trim()));
   server.once('exit', code => reject(new Error(`fixture server exited ${code}`)));
@@ -127,8 +141,7 @@ try {
     decisionId = (await page.textContent('#results .record-id')).trim();
     const [download] = await Promise.all([page.waitForEvent('download'), page.click('#export-lite-current')]);
     assert.match(download.suggestedFilename(), /^[a-z2-7]{8}\.json$/);
-    const core = spawnSync(python, ['-c', 'import sys; sys.path.insert(0, sys.argv[1]); from typelogic.core import export_filename; print(export_filename(sys.argv[2], "lite"))', join(here, '../..'), decisionId], { encoding: 'utf8' });
-    assert.equal(core.stdout.trim(), download.suggestedFilename());
+    assert.equal(exportFilename(decisionId, 'lite'), download.suggestedFilename());
     const lite = JSON.parse((await import('node:fs')).readFileSync(await download.path(), 'utf8'));
     assert.deepEqual(Object.keys(lite), ['title', 'tags', 'questions']);
     process.env.EXPECTED_NAME = download.suggestedFilename();
@@ -297,28 +310,77 @@ try {
     await page.waitForFunction(() => document.getElementById('decisions-section').open && document.querySelector('#results .error-box')?.textContent.includes('Decision 1'));
     await page.locator('.decision-card').nth(0).locator('.instructions').fill('Is this action safe?');
   });
-  await step('engine page shows profile, Rust readout and Rust core', async () => {
+  await step('engine page shows the models, the routing and the Rust core', async () => {
     await page.click('.nav[data-page="settings"]');
     const text = await page.textContent('#engine-profile');
-    assert.ok(text.includes('decision-2b-distill-s1024'), text);
-    assert.ok(text.includes('Rust readout'), text);
-    const backend = spawnSync(python, ['-c', 'import sys; sys.path.insert(0, sys.argv[1]); from typelogic.core import backend; print(backend()["backend"])', join(here, '../..')], { encoding: 'utf8' }).stdout.trim();
-    assert.ok((backend === 'rust' ? /Deterministic core\s*Rust/ : /Deterministic core\s*Python reference/).test(text), text);
+    assert.ok(text.includes('llama.cpp') && text.includes('Plumb') && /Routing\s*Up to 16 options: Plumb · more: specialist/.test(text), text);
+    assert.ok(/Deterministic core\s*Rust/.test(text), text);
+    await page.waitForFunction(() => !document.getElementById('needle-settings').textContent.includes('Checking'));
+    assert.ok(/not installed|no Needle entry/.test(await page.textContent('#needle-settings')));
   });
-  await step('engine mode selector saves CPU, GPU or Hybrid', async () => {
+  await step('engine mode selector saves Automatic or CPU only', async () => {
     await page.waitForFunction(() => document.getElementById('mode-current').textContent.includes('Current mode'));
-    assert.ok(await page.isChecked('input[name="engine-mode"][value="cpu"]'));
-    assert.ok(await page.isHidden('#hybrid-options'));
-    await page.check('input[name="engine-mode"][value="hybrid"]');
-    assert.ok(await page.isVisible('#hybrid-options'));
-    await page.selectOption('#hybrid-combine', 'ensemble');
-    await page.click('#apply-mode');
-    await page.waitForFunction(() => document.getElementById('engine-badge').textContent.includes('Hybrid'));
-    await page.waitForFunction(() => document.getElementById('mode-current').textContent.includes('Hybrid'));
-    assert.equal(await page.inputValue('#hybrid-combine'), 'ensemble');
+    assert.ok(await page.isChecked('input[name="engine-mode"][value="auto"]'));
+    assert.ok((await page.textContent('#mode-plan')).includes('fixture'));
     await page.check('input[name="engine-mode"][value="cpu"]');
     await page.click('#apply-mode');
-    await page.waitForFunction(() => document.getElementById('engine-badge').textContent.endsWith('CPU'));
+    await page.waitForFunction(() => document.getElementById('engine-badge').textContent.endsWith('CPU only'));
+    await page.waitForFunction(() => document.getElementById('mode-current').textContent.includes('CPU only'));
+    await page.check('input[name="engine-mode"][value="auto"]');
+    await page.click('#apply-mode');
+    await page.waitForFunction(() => document.getElementById('engine-badge').textContent.endsWith('Automatic'));
+  });
+  await step('Combine is saved without reloading the models', async () => {
+    assert.ok(await page.isChecked('input[name="engine-combine"][value="route"]'));
+    await page.check('input[name="engine-combine"][value="ensemble"]');
+    await page.click('#apply-mode');
+    await page.waitForFunction(() => document.getElementById('mode-status').textContent.includes('The models stay loaded'));
+    const info = await page.evaluate(() => fetch('/api/modes', { headers: { 'X-TypeLogic-Token': document.querySelector('meta[name="typelogic-token"]').content } }).then(r => r.json()));
+    assert.equal(info.settings.combine, 'ensemble');
+    assert.equal(info.engine_status, 'ready');
+    await page.check('input[name="engine-combine"][value="route"]');
+    await page.click('#apply-mode');
+    await page.waitForFunction(() => document.getElementById('mode-status').textContent.includes('routed'));
+  });
+  await step('Evaluate runs JevBench and saves the result', async () => {
+    const before = Number(await page.textContent('#library-count'));
+    await page.click('.nav[data-page="evaluate"]');
+    try { await page.waitForFunction(() => document.getElementById('eval-saved').textContent.includes('No saved evaluation'), null, { timeout: 8000 }); }
+    catch (e) { throw Error(`saved ${await page.textContent('#eval-saved')}, toast ${await page.textContent('#toast')}, hidden ${await page.isHidden('#page-evaluate')}`); }
+    assert.ok(await page.evaluate(() => document.querySelector('#eval-engine option[value="clef"]').disabled));
+    await page.fill('#eval-limit', '30');
+    await page.click('#eval-start');
+    try { await page.waitForFunction(() => document.getElementById('eval-status').textContent.startsWith('Finished: 30 of 30'), null, { timeout: 30000 }); }
+    catch (e) { throw Error(`status ${await page.textContent('#eval-status')}, toast ${await page.textContent('#toast')}`); }
+    const index = await page.textContent('#decision-index');
+    assert.ok(/^\d+\.\d$/.test(index), index);
+    const text = await page.textContent('#eval-result');
+    assert.ok(text.includes('By question type') && text.includes('Yes polarity') && text.includes('First option'), text.slice(0, 300));
+    await page.waitForFunction(() => document.querySelectorAll('#eval-saved tbody tr').length === 1);
+    if (process.env.SHOT_DIR) await page.screenshot({ path: process.env.SHOT_DIR + '/evaluate.png', fullPage: true });
+    const download = page.waitForEvent('download');
+    await page.click('#eval-saved button[data-format="jsonl"]');
+    const rows = readFileSync(await (await download).path(), 'utf8').trim().split('\n').map(l => JSON.parse(l));
+    assert.equal(rows.length, 30);
+    assert.ok('correct' in rows[0] && 'probabilities' in rows[0] && rows[0].gold);
+    assert.equal(Number(await page.textContent('#library-count')), before);
+  });
+  await step('Evaluate reads a JSONL file and reports its problems', async () => {
+    await page.check('#eval-source-file');
+    await page.setInputFiles('#eval-file', { name: 'bad.jsonl', mimeType: 'application/json', buffer: Buffer.from('{"id": "x", "state": "s", "question": {"type": "noul", "instructions": "Is it?"}, "expected": "maybe"}\n') });
+    await page.click('#eval-start');
+    await page.waitForFunction(() => document.getElementById('toast').textContent.includes('line 1'));
+    const good = ['{"id": "a", "state": "The parcel arrived broken.", "question": {"type": "noul", "instructions": "Is the parcel damaged?"}, "expected": "yes"}',
+      '{"id": "b", "case": "Refund my second charge.", "questions": {"team": {"type": "choice", "instructions": "Which team?", "criteria": ["billing", "shipping"]}}, "gold": {"team": "billing"}}'].join('\n');
+    await page.setInputFiles('#eval-file', { name: 'mine.jsonl', mimeType: 'application/json', buffer: Buffer.from(good) });
+    await page.waitForFunction(() => document.getElementById('eval-file-info').textContent.includes('2 rows'));
+    await page.fill('#eval-limit', '');
+    await page.click('#eval-start');
+    await page.waitForFunction(() => document.getElementById('eval-status').textContent.startsWith('Finished: 2 of 2'));
+    // the fixture answers the first option: yes is the second key of Yes / no, billing the first Choice option
+    assert.ok((await page.textContent('#eval-result')).includes('1 of 2'));
+    await page.waitForFunction(() => document.querySelectorAll('#eval-saved tbody tr').length === 2);
+    await page.check('#eval-source-jevbench');
   });
   await step('delete removes every decision from the Library', async () => {
     await page.click('.nav[data-page="library"]');
@@ -341,13 +403,13 @@ try {
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1));
   });
   await step('no console errors and no external requests', async () => {
-    assert.deepEqual(consoleErrors.filter(e => !e.includes('409')), []);
+    assert.deepEqual(consoleErrors.filter(e => !e.includes('409') && !e.includes('422')), []);  // 409: library full, 422: the bad JSONL file
     assert.deepEqual(external, []);
   });
 } finally {
   await browser.close();
   server.kill();
-  rmSync(data, { recursive: true, force: true });
+  rmSync(home, { recursive: true, force: true });
 }
 const failed = results.filter(r => r[0] === 'FAIL').length;
 console.log(`${results.length - failed}/${results.length} UI checks passed` + (process.env.EXPECTED_NAME ? ` (export ${process.env.EXPECTED_NAME})` : ''));

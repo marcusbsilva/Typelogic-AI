@@ -14,6 +14,6 @@ export async function loadNeedle(): Promise<NeedleStatus | null> {
   const info = document.getElementById('needle-settings');
   if (info) info.textContent = !status ? 'Status unavailable.' : status.available
     ? `Installed (models/needle, hashes verified on first use). Used for short texts, up to 1,500 characters. Network: none - TypeLogic uses only the native Needle engine; the needle Python package and its telemetry are not used.`
-    : `${status.reason} Network: none - the needle Python package and its telemetry are never used.`;
+    : `${status.reason} Network: none.`;
   return status;
 }

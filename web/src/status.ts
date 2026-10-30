@@ -3,7 +3,7 @@ import type { QuestionSpec, StatusResponse } from './types';
 import { $, $button, api, reportError } from './dom';
 import { renderEngineProfile } from './render';
 
-const MODE_LABELS: Record<string, string> = { cpu: 'CPU', gpu: 'GPU', hybrid: 'Hybrid' };
+const MODE_LABELS: Record<string, string> = { auto: 'Automatic', cpu: 'CPU only' };
 
 let profile: Record<string, QuestionSpec> | null = null;
 let statusTimer: number | undefined;
@@ -28,7 +28,7 @@ export async function refreshStatus(): Promise<void> {
   $('startup-status').classList.toggle('hidden', engineReady);
   $('startup-status').textContent = status === 'error'
     ? `Could not load the engine: ${data.engine.error || 'local failure'}. Open Engine & privacy to retry.`
-    : 'Loading the local engine automatically. You can enter your scenario while you wait.';
+    : 'Loading the local models automatically. You can enter your scenario while you wait.';
   const evaluate = $button('evaluate');
   evaluate.disabled = !engineReady || evaluating;
   evaluate.textContent = engineReady ? 'Evaluate decision ↗' : status === 'error' ? 'Engine unavailable' : 'Loading engine…';

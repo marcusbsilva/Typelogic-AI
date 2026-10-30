@@ -1,0 +1,16 @@
+diff --git a/src/models/qwen35.cpp b/src/models/qwen35.cpp
+index 8a4e434..cb832a4 100644
+--- a/src/models/qwen35.cpp
++++ b/src/models/qwen35.cpp
+@@ -227,6 +227,11 @@ llama_model_qwen35::graph::graph(const llama_model & model, const llm_graph_para
+         cb(embd, "result_embd_proj", -1);
+         res->t_embd = embd;
+         ggml_build_forward_expand(gf, embd);
++
++        // embeddings mode only reads the classifier output: skip the LM head (n_vocab logits per token)
++        if (cparams.embeddings) {
++            return;
++        }
+     }
+ 
+     // LM head
