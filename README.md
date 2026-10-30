@@ -49,6 +49,50 @@ At every start TypeLogic loads what fits this computer: Plumb + Clef-Flash on a 
 specialist + Plumb on a smaller GPU, both on the CPU otherwise (or when you choose CPU only). `TypeLogic doctor`
 shows the choice before anything starts.
 
+## The llama.cpp problem we found, and the fix
+
+Running the TypeLogic specialist through llama.cpp (as a `kev` decision model on `POST /v1/systemone`) worked on the
+first try and gave the same answers as the PyTorch engine of 1.x. But on the GPU it needed **5.5 GiB** for a model of
+1.9 GiB: more than twice what it should, and too much to keep it loaded next to Plumb and Clef-Flash on a 12 GB card.
+
+**Cause.** A decision model is run in embeddings mode, and in that mode llama.cpp makes every prompt token an output.
+The Qwen3.5 graph (`src/models/qwen35.cpp`) still ends with the language-model head, so for every token of the prompt
+it computed the logits of the whole vocabulary (248,320 entries), sized its compute buffer for them (3.4 GiB) and
+then threw them away: a decision model only reads its classifier output. llama.cpp already skips that head in
+embeddings mode for another architecture (LFM2), but not for Qwen3.5.
+
+**Fix.** A 5-line patch ([`spike/patches/qwen35-skip-lm-head.patch`](spike/patches/qwen35-skip-lm-head.patch)) returns
+after the classifier when the model runs in embeddings mode, the same rule as LFM2. Text generation (Plumb) and models
+without a classifier are untouched. `llama.dll` of the pinned llama.cpp release (v0.8.0, build b11960) was rebuilt
+from the same commit with the patch; the release archive ships it, and `config/models.lock.json` pins its SHA-256.
+Until the change is in a llama.cpp release, each runtime update needs this rebuild.
+
+**Results**, measured on the Intel Arc B580:
+
+- **Same answers:** all 1,846 test questions (JevBench, test2, BANKING77) give the same answer, with a largest
+  probability difference of exactly 0.
+- **Half the memory:** 5,581 -> 2,671 MiB after loading; the compute buffer went from 3,438 to 528 MiB.
+- **Faster:** median latency down by 24-40%, now below the PyTorch engine of 1.x on every suite.
+- **Three models on one GPU:** Plumb, the specialist and Clef-Flash load together (10.3 of 12 GB) with the same
+  answers as each model alone, including 60 cases sent to the three at once.
+
+![GPU memory of the specialist with the release and the patched llama.dll](docs/images/llama-memory.png)
+
+![Median latency of the specialist: release, patched and TypeLogic 1.x](docs/images/llama-latency.png)
+
+![GPU memory of the three models on the B580 before and after the fix](docs/images/b580-three-models.png)
+
+A second, smaller issue: in router mode, llama-server checks free GPU memory before loading a model, and its
+estimate counts that same unused head. It refused to load the third model although all three fit. TypeLogic turns
+that check off (`--models-memory-margin 0`) and chooses the models itself from the memory each one was measured to
+use.
+
+What the whole application reaches with these models, on the 231 public JevBench decisions (Evaluate page):
+
+![Decision Index, accuracy and Brier score of Route, Combine and Clef-Flash only](docs/images/results-jevbench.png)
+
+Full measurements: [docs/SPIKE-RESULTS.md](docs/SPIKE-RESULTS.md) and [docs/VERIFICATION.md](docs/VERIFICATION.md).
+
 ## Using it
 
 - **New decision:** a case text with an optional title and tags, typed evidence (template values, your own, or
